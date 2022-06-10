@@ -6,7 +6,7 @@ This repository contains the Programming Fundamentals course from SoftUni
 <ul>
   <li><h3>Debugging and Troubleshooting</h3></li>
   <li><h3>Git and GitHub</h3></li>
-  <li><h3>HTTP Basics<h3>
+  <li><h3>HTTP Basics</h3>
     <ul>
       <li>HTTP Developer Tools</li>
       <li>HTML Forms</li>
@@ -22,7 +22,7 @@ This repository contains the Programming Fundamentals course from SoftUni
     </ul>
   </li>
   <li><h3>HTML && CSS Basics</h3></li>
-  <li><h3>Functions<h3>
+  <li><h3>Functions</h3>
     <ul>
       <li>Declaration and Invocation</li>
       <li>Nested Functions</li>
