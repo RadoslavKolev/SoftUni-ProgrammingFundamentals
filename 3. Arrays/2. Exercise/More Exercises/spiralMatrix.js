@@ -1,58 +1,54 @@
-function generateMatrix(n) {
-  var total = n*n;
-  var result= [];
+function spiralMatrix(rows, cols) {
+  printMatrix(getMatrix(rows, cols));
 
-  for(var i=0;i<n;i++) {
-      var rs = [];
-      for(var j=0;j<n;j++) {
-          rs.push(0);
+  function getMatrix(rows, cols) {
+    let [count, maxCount, minRow, minCol, maxRow, maxCol] = [
+      0,
+      rows * cols,
+      0,
+      0,
+      rows - 1,
+      cols - 1,
+    ];
+    let matrix = [];
+
+    for (let r = 0; r < rows; r++) {
+      matrix[r] = [];
+    }
+
+    while (count < maxCount) {
+      for (let c = minCol; c <= maxCol && count < maxCount; c++) {
+        matrix[minRow][c] = ++count;
       }
-      result.push(rs);
+
+      minRow++;
+
+      for (let r = minRow; r <= maxRow && count < maxCount; r++) {
+        matrix[r][maxCol] = ++count;
+      }
+
+      maxCol--;
+
+      for (let c = maxCol; c >= minCol && count < maxCount; c--) {
+        matrix[maxRow][c] = ++count;
+      }
+
+      maxRow--;
+
+      for (let r = maxRow; r >= minRow && count < maxCount; r--) {
+        matrix[r][minCol] = ++count;
+      }
+
+      minCol++;
+    }
+
+    return matrix;
   }
 
-  var x=0;
-  var y=0;
-  var step = 0;
-  for(var i=0;i<total;){
-      while(y+step<n){
-          i++;
-          result[x][y]=i;
-          y++;
-
-      }
-      y--;
-      x++;
-
-      while(x+step<n){
-          i++;
-          result[x][y]=i;
-          x++;
-      }
-      x--;
-      y--;
-
-      while(y>=step){
-          i++;
-          result[x][y]=i;
-          y--;
-      }
-      y++;
-      x--;
-      step++;
-
-      while(x>=step){
-          i++;
-          result[x][y]=i;
-          x--;
-      }
-      x++;
-      y++;
+  function printMatrix(matrix) {
+    matrix.forEach((row) => console.log(row.join(" ")));
   }
-  return result;
 }
-var result = generateMatrix(5, 5);
-console.log(result);
 
-generateMatrix(5, 5);
-
-// spiralMatrix(['3 3']);
+spiralMatrix(5, 5);
+// spiralMatrix(3, 3);
