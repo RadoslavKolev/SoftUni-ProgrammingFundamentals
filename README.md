@@ -19,6 +19,9 @@ This repository contains the Programming Fundamentals course from SoftUni
       <li>Array Operations</li>
       <li>Array Iteration</li>
       <li>for/of loop</li>
+      <li>Array Functionality</li>
+      <li>Array Operations (push, pop, shift, unshift, filtering and transforming elements)</li>
+      <li>Sorting Arrays</li>
     </ul>
   </li>
   <li><h3>HTML && CSS Basics</h3></li>
@@ -30,5 +33,21 @@ This repository contains the Programming Fundamentals course from SoftUni
       <li>Value vs Reference Types</li>
       <li>Naming and Best Practices</li>
     </ul>  
+  </li>
+  <li><h3>Software Development Concepts</h3>
+    <ul>
+      <li>The 4 Skills of the Software Engineer</li>
+      <li>Fundamental Software Engineering Concepts
+        <ul>
+          <li>Math Concepts</li>
+          <li>Object-Oriented Programming</li>
+          <li>Functional Programming</li>
+          <li>Data Structures and Algorithms</li>
+          <li>Component-Based Development and Event-Driven Programming</li>
+          <li>Asynchronous Programming and Promises</li>
+        </ul>
+      </li>
+      <li>Software Architectures, Front-End and Back-End</li>
+    </ul>
   </li>
 </ul>
