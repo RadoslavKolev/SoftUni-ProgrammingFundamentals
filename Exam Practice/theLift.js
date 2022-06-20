@@ -3,7 +3,6 @@ function theLift(input) {
   let people = Number(input[0]);
   let lift = input[input.length - 1];
   const liftArr = lift.split(' '); // ['0', '0', '0', '0', '0']
-  const fullArr = [];
   let message = '';
 
   for (let i = 0; i < liftArr.length; i++) {
@@ -15,21 +14,25 @@ function theLift(input) {
       people--;
       currentLift++;
     }
-    fullArr.push(currentLift);
+    liftArr[i] = currentLift;
+
+    if (people < 1) {
+      break;
+    }
   }
 
-  let lastSpace = fullArr[fullArr.length - 1];
+  let lastSpace = liftArr[liftArr.length - 1];
 
   if (people === 0 && lastSpace === 4) {
-    console.log(fullArr.join(' '));
+    console.log(liftArr.join(' '));
   } else if (people !== 0) {
     message = `There isn't enough space! ${people} people in a queue!`;
     console.log(message);
-    console.log(fullArr.join(' '));
+    console.log(liftArr.join(' '));
   } else if (people === 0) {
     message = `The lift has empty spots!`;
     console.log(message);
-    console.log(fullArr.join(' '));
+    console.log(liftArr.join(' '));
   }
 }
 
