@@ -6,20 +6,26 @@ function experienceGaining(input) {
 
   for (let i = 0; i < battles; i++) {
     let currentExperience = Number(input[i]);
+
     if (currentBattle % 3 === 0) {
-      currentExperience = currentExperience + (currentExperience * 15 / 100);
+      currentExperience += currentExperience * 0.15;
     }
+
     if (currentBattle % 5 === 0) {
-      currentExperience = currentExperience - (currentExperience * 10 / 100);
+      currentExperience -= currentExperience * 0.10;
     }
+
     if (currentBattle % 15 === 0) {
-      currentExperience = currentExperience + (currentExperience * 5 / 100);
+      currentExperience += currentExperience * 0.05;
     }
+
     totalExperience += currentExperience;
+    
     if (totalExperience >= targetExperience) {
       console.log(`Player successfully collected his needed experience for ${currentBattle} battles.`);
       return;
     }
+    
     currentBattle++;
   }
 
