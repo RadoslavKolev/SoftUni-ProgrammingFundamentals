@@ -21,8 +21,7 @@ function guineaPig(input) {
 
     if (food <= 0 || hay <= 0 || cover <= 0) {
       console.log("Merry must go to the pet store!");
-      flag = false;
-      break;
+      return;
     }
   }
 

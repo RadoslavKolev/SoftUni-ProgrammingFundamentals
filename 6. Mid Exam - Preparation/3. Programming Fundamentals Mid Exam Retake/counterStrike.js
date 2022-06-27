@@ -13,8 +13,7 @@ function counterStrike(input) {
 
     if (energy < distance) {
       console.log(`Not enough energy! Game ends with ${wonBattles} won battles and ${energy} energy`);
-      flag = false;
-      break;
+      return;
     }
 
     wonBattles++;

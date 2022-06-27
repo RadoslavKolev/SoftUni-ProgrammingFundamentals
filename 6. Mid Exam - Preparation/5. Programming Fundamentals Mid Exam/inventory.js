@@ -1,19 +1,19 @@
 function inventory(input) {
-  let journal = input.shift().split(', ');
+  const journal = input.shift().split(', ');
 
-  let collect = (arr, item) => arr.push(item);
+  const collect = (arr, item) => arr.push(item);
 
-  let drop = (arr, item) => {
+  const drop = (arr, item) => {
     let index = arr.indexOf(item);
     arr.splice(index, 1);
   };
 
-  let combineItems = (arr, oldItem, newItem) => {
+  const combineItems = (arr, oldItem, newItem) => {
     let index = arr.indexOf(oldItem);
     arr.splice(index + 1, 0, newItem);
   };
 
-  let renew = (arr, item) => {
+  const renew = (arr, item) => {
     let index = arr.indexOf(item);
     arr.splice(index, 1);
     arr.push(item);

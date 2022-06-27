@@ -6,10 +6,10 @@ function solve(input) {
     let [index1, index2] = input.shift().split(' ');
     index1 = Number(index1);
     index2 = Number(index2);
-
     moves++;
+
     if (index1 < 0 || index1 >= numbers.length || index1 === index2
-    || index2 < 0 || index2 >= numbers.length) {
+        || index2 < 0 || index2 >= numbers.length) {
       const index = Math.trunc(numbers.length / 2);
       const symbol = '-' + moves + 'a';
       numbers.splice(index, 0, symbol, symbol);
@@ -36,14 +36,15 @@ function solve(input) {
   }
 }
 
-// demo([
-//   "a 2 4 a 2 4", 
-//   "0 3", 
-//   "0 2",
-//   "0 1",
-//   "0 1", 
-//   "end"
-// ]);
+demo([
+  "a 2 4 a 2 4", 
+  "0 3", 
+  "0 2",
+  "0 1",
+  "0 1", 
+  "end"
+]);
+
 demo([
   "a 2 4 a 2 4", 
   "0 3", 

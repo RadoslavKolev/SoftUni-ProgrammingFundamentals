@@ -1,9 +1,9 @@
 function manOWar(input) {
-  let pirateShip = input.shift().split('>').map(Number);
-  let warShip = input.shift().split('>').map(Number);
-  let maxHealthCapacity = Number(input.shift());
+  const pirateShip = input.shift().split('>').map(Number);
+  const warShip = input.shift().split('>').map(Number);
+  const maxHealthCapacity = Number(input.shift());
 
-  let fire = (arr, index, damage) => {
+  const fire = (arr, index, damage) => {
     arr[index] -= damage;
     if (arr[index] <= 0) {
       return true;
@@ -12,7 +12,7 @@ function manOWar(input) {
     }
   }
 
-  let defend = (arr, start, end, damage) => {
+  const defend = (arr, start, end, damage) => {
     for (let i = start; i <= end; i++) {
       arr[i] -= damage;
       if (arr[i] <= 0) {
@@ -22,14 +22,14 @@ function manOWar(input) {
     return false;
   };
 
-  let repair = (arr, index, health) => {
+  const repair = (arr, index, health) => {
     arr[index] += health;
     if (arr[index] > maxHealthCapacity) {
       arr[index] = maxHealthCapacity;
     }
   };
 
-  let status = (arr) => {
+  const status = (arr) => {
     let range = maxHealthCapacity * 0.2;
     let sectionsForRepair = arr.filter(el => el < range);
     console.log(`${sectionsForRepair.length} sections need repair.`);
@@ -88,18 +88,18 @@ function manOWar(input) {
   console.log(`Warship status: ${warShipSum}`);
 }
 
-// manOWar([
-//   "12>13>11>20>66",
-//   "12>22>33>44>55>32>18",
-//   "70",
-//   "Fire 2 11",
-//   "Fire 8 100",
-//   "Defend 3 6 11",
-//   "Defend 0 3 5",
-//   "Repair 1 33",
-//   "Status",
-//   "Retire"
-// ]);
+manOWar([
+  "12>13>11>20>66",
+  "12>22>33>44>55>32>18",
+  "70",
+  "Fire 2 11",
+  "Fire 8 100",
+  "Defend 3 6 11",
+  "Defend 0 3 5",
+  "Repair 1 33",
+  "Status",
+  "Retire"
+]);
 
 manOWar([
   "2>3>4>5>2",

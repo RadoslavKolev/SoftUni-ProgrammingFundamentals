@@ -1,18 +1,18 @@
 function movingTarget(input) {
-  let sequence = input.shift().split(' ').map(Number);
+  const sequence = input.shift().split(' ').map(Number);
 
-  let shoot = (arr, index, power) => {
+  const shoot = (arr, index, power) => {
     arr[index] -= power;
     if (arr[index] <= 0) {
       arr.splice(index, 1);
     }
   };
 
-  let add = (arr, index, value) => {
+  const add = (arr, index, value) => {
     arr.splice(index, 0, value);
   };
 
-  let strike = (arr, index, radius) => {
+  const strike = (arr, index, radius) => {
     let startIndex = index - radius;
     let endIndex = index + radius;
     if (startIndex < 0 || endIndex >= arr.length) {

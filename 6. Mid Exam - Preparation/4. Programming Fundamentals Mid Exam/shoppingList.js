@@ -1,19 +1,19 @@
 function shoppingList(input) {
-  let groceries = input.shift().split('!');
+  const groceries = input.shift().split('!');
 
-  let urgent = (arr, item) => arr.unshift(item);
+  const urgent = (arr, item) => arr.unshift(item);
 
-  let unnecessary = (arr, item) => {
+  const unnecessary = (arr, item) => {
     let index = arr.indexOf(item);
     arr.splice(index, 1);
   };
 
-  let correct = (arr, oldItem, newItem) => {
+  const correct = (arr, oldItem, newItem) => {
     let index = arr.indexOf(oldItem);
     arr[index] = newItem;
   };
 
-  let rearrange = (arr, item) => {
+  const rearrange = (arr, item) => {
     let index = arr.indexOf(item);
     let removed = arr.splice(index, 1).join();
     arr.push(removed);

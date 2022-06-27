@@ -50,11 +50,9 @@ function muOnline(input) {
     bestRoom++;
   }
 
-  if (health > 0) {
-    console.log("You've made it!");
-    console.log(`Bitcoins: ${bitcoins}`);
-    console.log(`Health: ${health}`);
-  }
+  console.log("You've made it!");
+  console.log(`Bitcoins: ${bitcoins}`);
+  console.log(`Health: ${health}`);
 }
 
 muOnline("rat 10|bat 20|potion 10|rat 10|chest 100|boss 70|chest 1000");

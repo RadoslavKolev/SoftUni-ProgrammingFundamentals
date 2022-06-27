@@ -5,7 +5,6 @@ function softUniReception(input) {
   let students = Number(input[3]);
 
   let answeredStudentsPerHour = firstEmployeeEfficiency + secondEmployeeEfficiency + thirdEmployeeEfficiency;
-
   let hours = 0;
 
   while (students > 0) {

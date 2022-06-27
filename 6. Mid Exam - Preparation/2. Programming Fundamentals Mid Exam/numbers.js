@@ -1,9 +1,7 @@
 function numbers(input) {
   let sequence = input.split(' ').map(Number);
-
   let sum = sequence.reduce((total, num) => total + num);
   let average = sum / sequence.length;
-
   let moreThanAverage = sequence.filter(num => num > average)
                                 .sort((a, b) => b - a)
                                 .slice(0, 5);

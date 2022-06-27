@@ -1,8 +1,8 @@
 function arrayModifier(input) {
   // Functions to do the job
-  let swap = (arr, index1, index2) => [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
-  let multiply = (arr, index1, index2) => arr[index1] *= arr[index2];
-  let decrease = arr => arr.map(elem => elem - 1);
+  const swap = (arr, index1, index2) => [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
+  const multiply = (arr, index1, index2) => arr[index1] *= arr[index2];
+  const decrease = arr => arr.map(elem => elem - 1);
 
   // Initial array to work with
   let sequence = input.shift().split(' ').map(Number);
