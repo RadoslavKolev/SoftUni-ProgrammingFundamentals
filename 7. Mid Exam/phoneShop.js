@@ -1,19 +1,19 @@
 function phoneShop(input) {
-  let phones = input.shift().split(', ');
+  const phones = input.shift().split(', ');
 
-  let add = (arr, phone) => arr.push(phone);
+  const add = (arr, phone) => arr.push(phone);
 
-  let remove = (arr, phone) => {
+  const remove = (arr, phone) => {
     let index = arr.indexOf(phone);
     arr.splice(index, 1);
   };
 
-  let bonusPhone = (arr, oldPhone, newPhone) => {
+  const bonusPhone = (arr, oldPhone, newPhone) => {
     let index = arr.indexOf(oldPhone);
     arr.splice(index + 1, 0, newPhone);
   };
 
-  let last = (arr, phone) => {
+  const last = (arr, phone) => {
     let index = arr.indexOf(phone);
     let item = arr.splice(index, 1).join();
     arr.push(item);
