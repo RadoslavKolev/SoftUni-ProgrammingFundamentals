@@ -1,4 +1,4 @@
-function cats(catsArr) {
+function cats(cats) {
   class Cat {
     constructor(name, age) {
       this.name = name;
@@ -10,12 +10,10 @@ function cats(catsArr) {
     }
   }
 
-  for (const elem of catsArr) {
-    const currentCat = elem.split(' ');
-    let catName = currentCat[0];
-    let catAge = Number(currentCat[1]);
-    let catObj = new Cat(catName, catAge);
-    catObj.meow();
+  for (const elem of cats) {
+    let [name, age] = elem.split(' ');
+    const cat = new Cat(name, age);
+    cat.meow();
   }
 }
 
