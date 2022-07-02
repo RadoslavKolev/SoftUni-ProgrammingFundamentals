@@ -50,4 +50,12 @@ This repository contains the Programming Fundamentals course from SoftUni
       <li>Software Architectures, Front-End and Back-End</li>
     </ul>
   </li>
+  <li><h3>Objects and Classes</h3>
+    <ul>
+      <li>Objects (definition, properties and methods)</li>
+      <li>Reference vs. Value Types</li>
+      <li>JSON</li>
+      <li>Classes (definition, constructor, properties, methods)</li>
+    </ul>  
+  </li>
 </ul>
