@@ -7,7 +7,10 @@ function flightSchedule(input) {
 
   // Pushing all the initial flights to the array - objects
   for (const elem of flights) {
-    let [plane, destination] = elem.split(' ');
+    let token = elem.split(' ');
+    let plane = token.shift(); 
+    let destination = token.join(' ');  // Some cities have 2 names
+    
     let flight = {
       plane,
       destination,
