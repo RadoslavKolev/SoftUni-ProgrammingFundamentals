@@ -48,6 +48,37 @@ This repository contains the Programming Fundamentals course from SoftUni
         </ul>
       </li>
       <li>Software Architectures, Front-End and Back-End</li>
+      <li>Front-End Development Concepts
+        <ul>
+          <li>Web Front-End and DOM</li>
+          <li>AJAX and RESTful APIs</li>
+          <li>Templating Engines</li>
+          <li>Routing and Routing Libraries</li>
+          <li>Libraries vs. Frameworks</li>
+          <li>UI Frameworks</li>
+          <li>Mobile Apps</li>
+        </ul>
+      </li>
+      <li>Back-End Development Concepts;
+        <ul>
+          <li>Databases and DBMS Systems</li>
+          <li>ORM Frameworks</li>
+          <li>The MVC Pattern</li>
+          <li>Routing and Routing Libraries</li>
+          <li>Virtualization, Cloud and Containers</li>
+          <li>Operating Systems and Linux Shell</li>
+        </ul>
+      </li>
+      <li>Embedded Systems and IoT;</li>
+      <li>Software Engineering Concepts
+        <ul>
+          <li>Software Development Lifecycle</li>
+          <li>Software Quality Assurance (QA)</li>
+          <li>Unit Testing</li>
+          <li>Source Control Systems</li>
+          <li> Project Trackers and Kanban Boards</li>
+        </ul>
+      </li>
     </ul>
   </li>
   <li><h3>Objects and Classes</h3>
