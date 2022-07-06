@@ -7,11 +7,10 @@ function addressBook(input) {
   });
 
   const sortedKeys = Object.keys(addressInfo)
-    .sort((a, b) => a.localeCompare(b));
-  
-  sortedKeys.forEach(key => {
-    console.log(`${key} -> ${addressInfo[key]}`);
-  });
+    .sort((a, b) => a.localeCompare(b))
+    .forEach(key => {
+      console.log(`${key} -> ${addressInfo[key]}`);
+    });
 }
 
 // Test 1

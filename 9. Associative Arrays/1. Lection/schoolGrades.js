@@ -7,11 +7,11 @@ function schoolGrades(input) {
     let grades = tokens.map(Number);
 
     if (!map.has(name)) {
-      map.set(name, []);
+      map.set(name, grades);
+    } else {
+      let existingGrades = map.get(name);
+      grades.forEach(x => existingGrades.push(x));
     }
-
-    let existing = map.get(name);
-    grades.forEach(x => existing.push(x));;
   });
 
   let sorted = Array.from(map)

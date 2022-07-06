@@ -14,8 +14,8 @@ function storage(input) {
     }
   });
 
-  for (const elem of items) {
-    console.log(`${elem[0]} -> ${elem[1]}`);
+  for (const [key, value] of items) {
+    console.log(`${key} -> ${value}`);
   }
 }
 
