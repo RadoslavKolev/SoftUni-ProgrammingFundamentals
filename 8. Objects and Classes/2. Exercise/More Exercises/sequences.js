@@ -11,8 +11,8 @@ function sequences(input) {
     let isUnique = true;
     // Loops through the unique arrays
     for (let j = 0; j < uniqueArrays.length; j++) {
-      let nextArray = uniqueArrays[j];
-      if (nextArray.toString() === currentArray.toString()) {
+      let arrToCheck = uniqueArrays[j];
+      if (arrToCheck.toString() === currentArray.toString()) {
         isUnique = false;
         break;
       }
