@@ -2,7 +2,8 @@ function partyTime(input) {
   const guests = {
     vip: [],
     regular: [],
-  }
+  };
+  
   let isParty = false;
 
   for (const guest of input) {
