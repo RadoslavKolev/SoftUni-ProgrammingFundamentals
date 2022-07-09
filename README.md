@@ -89,4 +89,11 @@ This repository contains the Programming Fundamentals course from SoftUni
       <li>Classes (definition, constructor, properties, methods)</li>
     </ul>  
   </li>
+  <li><h3>Associative Arrays</h3>
+    <ul>
+      <li>Definition, attributes, iteration</li>
+      <li>Map (methods, iteration)</li>
+      <li>Set (methods, iteration)</li>
+    </ul>  
+  </li>
 </ul>
