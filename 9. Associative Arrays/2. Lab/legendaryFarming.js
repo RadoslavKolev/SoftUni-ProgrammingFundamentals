@@ -8,7 +8,7 @@ function legendaryFarming(input) {
   };
   const junk = {};
 
-  let isOver = false;
+  let isObtained = false;
 
   while (materials.length > 0) {
     let quantity = Number(materials.shift());
@@ -47,28 +47,28 @@ function legendaryFarming(input) {
 
         console.log(`${message} obtained!`);
         materialsObj[key] -= GOAL;
-        isOver = true;
+        isObtained = true;
         break;
       }
     }
 
-    if (isOver) {
+    if (isObtained) {
       break;
     }
   }
 
-  const sortedMaterials = Object.entries(materialsObj)
+  Object.entries(materialsObj)
     .sort(([materialA, valueA], [materialB, valueB]) =>
       valueB - valueA || materialA.localeCompare(materialB))
     .forEach(([material, value]) => {
       console.log(`${material}: ${value}`);
     });
 
-  const sortedJunks = Object.entries(junk)
-    .sort(([junkA, valueA], [junkB, valueB]) =>
-      junkA.localeCompare(junkB))
-    .forEach(([junk, value]) => {
-      console.log(`${junk}: ${value}`);
+  Object.keys(junk)
+    .sort((keyA, keyB) =>
+      keyA.localeCompare(keyB))
+    .forEach(key => {
+      console.log(`${key}: ${junk[key]}`);
     });
 }
 
