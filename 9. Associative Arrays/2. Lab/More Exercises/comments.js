@@ -8,7 +8,7 @@ function comments(input) {
     if (elem.includes('user ')) {
       let username = elem.replace('user ', '');
       users.push(username);
-      
+
       // add article to the articles
     } else if (elem.includes('article ')) {
       let article = elem.replace('article ', '');
@@ -39,7 +39,7 @@ function comments(input) {
           title: commentTitle,
           content: commentContent,
         });
-        
+
         // Increment the comment counter on the current article
         comments[articleName].totalComments++;
       }
@@ -47,22 +47,19 @@ function comments(input) {
   });
 
   // Sorting the comments by total comments (descending)
-  const sortedComments = Object.entries(comments)
-    .sort(([article1, obj1], [article2, obj2]) => obj2.totalComments - obj1.totalComments);
-
-  for (const [article, obj] of sortedComments) {
-    console.log(`Comments on ${article}`);
-    // We delete the totalComments prop, because it prints along the other data
-    delete obj.totalComments;
-
-    Object.entries(obj)
-      .sort(([user1], [user2]) => user1.localeCompare(user2))   // sort users alphabetically
-      .forEach(([user, comment]) => {
-        comment.forEach(item => {   // we loop through the comments of the current user
-          console.log(`--- From user ${user}: ${item.title} - ${item.content}`);
+  Object.entries(comments)
+    .sort(([article1, obj1], [article2, obj2]) => obj2.totalComments - obj1.totalComments)
+    .forEach(([article, obj]) => {
+      console.log(`Comments on ${article}`);
+      Object.entries(obj)
+        .filter(([user]) => user !== 'totalComments')
+        .sort(([user1], [user2]) => user1.localeCompare(user2)) // sort users alphabetically
+        .forEach(([user, comment]) => {
+          comment.forEach(item => { // we loop through the comments of the current user
+            console.log(`--- From user ${user}: ${item.title} - ${item.content}`);
+          });
         });
-      });
-  }
+    });
 }
 
 console.log('---------------------- Test 1  ----------------------');
