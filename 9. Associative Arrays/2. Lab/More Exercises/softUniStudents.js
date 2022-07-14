@@ -42,20 +42,18 @@ function softUniStudents(input) {
     }
   }
 
-  const sortedStudents = Object.entries(courses)
-    .sort(([courseA, objA], [courseB, objB]) => {
-      return Object.values(objB)[1].length - Object.values(objA)[1].length
-    });
+  Object.entries(courses)
+    .sort(([courseA, objA], [courseB, objB]) => 
+      Object.values(objB)[1].length - Object.values(objA)[1].length)
+    .forEach(([course, obj]) => {
+      console.log(`${course}: ${obj.capacity} places left`);
 
-  for (const [course, obj] of sortedStudents) {
-    console.log(`${course}: ${obj.capacity} places left`);
-
-    Object.values(obj)[1]
-      .sort((a, b) => b.credits - a.credits)
-      .forEach(student => {
-        console.log(`--- ${student.credits}: ${student.username}, ${student.email}`);
+      Object.values(obj)[1]
+        .sort((a, b) => b.credits - a.credits)
+        .forEach(student => {
+          console.log(`--- ${student.credits}: ${student.username}, ${student.email}`);
+        });
       });
-  }
 }
 
 console.log('---------------------- Test 1  ----------------------');
