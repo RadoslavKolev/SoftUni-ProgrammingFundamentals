@@ -5,7 +5,13 @@ This repository contains the Programming Fundamentals course from SoftUni
 <h2>Skills learned:</h2>
 <ul>
   <li><h3>Debugging and Troubleshooting</h3></li>
-  <li><h3>Git and GitHub</h3></li>
+  <li><h3>Git and GitHub</h3>
+    <ul>
+      <li>Software Configuration Management</li>
+      <li>Introduction to Git</li>
+      <li>Introduction to GitHub</li>
+    </ul>
+  </li>
   <li><h3>HTTP Basics</h3>
     <ul>
       <li>HTTP Developer Tools</li>
@@ -24,7 +30,17 @@ This repository contains the Programming Fundamentals course from SoftUni
       <li>Sorting Arrays</li>
     </ul>
   </li>
-  <li><h3>HTML && CSS Basics</h3></li>
+  <li><h3>HTML && CSS Basics</h3>
+    <ul>
+      <li>Intro to HTML</li>
+      <li>HTML Common Elements</li>
+      <li>Introduction to CSS</li>
+      <li>Selectors</li>
+      <li>Block Elements</li>
+      <li>Dev Tools</li>
+      <li>Fonts</li>
+    </ul>
+  </li>
   <li><h3>Functions</h3>
     <ul>
       <li>Declaration and Invocation</li>
@@ -94,6 +110,33 @@ This repository contains the Programming Fundamentals course from SoftUni
       <li>Definition, attributes, iteration</li>
       <li>Map (methods, iteration)</li>
       <li>Set (methods, iteration)</li>
+    </ul>  
+  </li>
+  <li><h3>Bitwise Operations</h3>
+    <ul>
+      <li>What is a Bit, Byte, KB, MB?</li>
+      <li>Numerals Systems
+        <ul>
+          <li>Decimal, Binary, Hexademical</li>
+          <li>Conversion between Numeral Systems</li>
+        </ul>
+      </li>
+      <li>Representation of Data in Computer Memory
+        <ul>
+          <li>Representing Integers, Real Numbers and Text</li>
+        </ul>
+      </li>
+      <li>Bitwise Operations & | ^ ~
+        <ul>
+          <li>Reading/Writing bits from Integers</li>
+        </ul>
+      </li>
+    </ul>  
+  </li>
+  <li><h3>Text Processing</h3>
+    <ul>
+      <li>Strings</li>
+      <li>Manipulating Strings (Concatenating, Searching, Substring, Splitting, Replacing)</li>
     </ul>  
   </li>
 </ul>
