@@ -24,7 +24,17 @@ This repository contains the Programming Fundamentals course from SoftUni
       <li>Sorting Arrays</li>
     </ul>
   </li>
-  <li><h3>HTML && CSS Basics</h3></li>
+  <li><h3>HTML && CSS Basics</h3>
+    <ul>
+      <li>Intro to HTML</li>
+      <li>HTML Common Elements</li>
+      <li>Introduction to CSS</li>
+      <li>Selectors</li>
+      <li>Block Elements</li>
+      <li>Dev Tools</li>
+      <li>Fonts</li>
+    </ul>
+  </li>
   <li><h3>Functions</h3>
     <ul>
       <li>Declaration and Invocation</li>
@@ -115,6 +125,12 @@ This repository contains the Programming Fundamentals course from SoftUni
           <li>Reading/Writing bits from Integers</li>
         </ul>
       </li>
+    </ul>  
+  </li>
+  <li><h3>Text Processing</h3>
+    <ul>
+      <li>Strings</li>
+      <li>Manipulating Strings (Concatenating, Searching, Substring, Splitting, Replacing)</li>
     </ul>  
   </li>
 </ul>
