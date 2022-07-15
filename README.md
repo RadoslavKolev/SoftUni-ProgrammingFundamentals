@@ -96,4 +96,25 @@ This repository contains the Programming Fundamentals course from SoftUni
       <li>Set (methods, iteration)</li>
     </ul>  
   </li>
+  <li><h3>Bitwise Operations</h3>
+    <ul>
+      <li>What is a Bit, Byte, KB, MB?</li>
+      <li>Numerals Systems
+        <ul>
+          <li>Decimal, Binary, Hexademical</li>
+          <li>Conversion between Numeral Systems</li>
+        </ul>
+      </li>
+      <li>Representation of Data in Computer Memory
+        <ul>
+          <li>Representing Integers, Real Numbers and Text</li>
+        </ul>
+      </li>
+      <li>Bitwise Operations & | ^ ~
+        <ul>
+          <li>Reading/Writing bits from Integers</li>
+        </ul>
+      </li>
+    </ul>  
+  </li>
 </ul>
