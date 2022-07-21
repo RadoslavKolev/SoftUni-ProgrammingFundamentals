@@ -1,11 +1,11 @@
 function matchPhoneNumber(input) {
   const phoneNumbers = input[0];
-  const pattern = /\+359( |-)2\1(\d{3})\1(\d{4})\b/gm;
+  const pattern = /\+359( |-)2\1(\d{3})\1(\d{4})\b/g;
   const validPhones = phoneNumbers.match(pattern);
   console.log(validPhones.join(', '));
 
   // Back reference named group - \k<name>
-  // const pattern = /\+359(?<separator> |-)2\k<separator>(\d{3})\k<separator>(\d{4})\b/gm;  
+  // const pattern = /\+359(?<separator> |-)2\k<separator>(\d{3})\k<separator>(\d{4})\b/g;  
 }
 
 console.log('------------------Test 1------------------');

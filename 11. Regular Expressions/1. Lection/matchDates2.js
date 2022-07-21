@@ -1,6 +1,6 @@
 function matchDates(input) {
   const dates = input[0];
-  const pattern = /\b(?<day>\d{2})([-.\/])(?<month>[A-Z][a-z]{2})\2(?<year>\d{4})\b/g;
+  const pattern = /\b\d{2}([-.\/])[A-Z][a-z]{2}\1\d{4}\b/g;
   const splitPattern = /[-.\/]/g;
   const validDates = dates.match(pattern);
   
