@@ -1,9 +1,10 @@
 function starEnigma(input) {
   const messages = Number(input.shift());
   const letters = ['s', 't', 'a', 'r'];
-  const decryptedPattern = /@(?<planet>[A-Za-z]+)[^@\-!:>]*:(?<population>\d+)[^@\-!:>]*!(?<attackType>[A|D])![^@\-!:>]*\->(?<soldiers>\d+)/;
   const attackedPlanets = [];
   const destroyedPlanets = [];
+
+  const decryptedPattern = /@(?<planet>[A-Za-z]+)[^@\-!:>]*:(?<population>\d+)[^@\-!:>]*!(?<attackType>[A|D])![^@\-!:>]*\->(?<soldiers>\d+)/;
 
   for (let i = 0; i < messages; i++) {
     let currentMessage = input[i];
@@ -23,7 +24,7 @@ function starEnigma(input) {
       .map(letter => String.fromCharCode(letter.charCodeAt() - occurrences))
       .join('');
 
-    const validMessage = decryptedMessage.match(decryptedPattern);
+    const validMessage = decryptedPattern.exec(decryptedMessage);
 
     if (validMessage === null) {
       continue;
@@ -33,7 +34,7 @@ function starEnigma(input) {
     let attackType = validMessage.groups.attackType;
 
     if (attackType === 'A') {
-      attackedPlanets.push(planet)
+      attackedPlanets.push(planet);
     } else if (attackType === 'D') {
       destroyedPlanets.push(planet);
     }
@@ -44,7 +45,7 @@ function starEnigma(input) {
       arr.sort((a, b) => a.localeCompare(b))
         .forEach(planet => console.log(`-> ${planet}`));
     }
-  }
+  };
 
   console.log(`Attacked planets: ${attackedPlanets.length}`);
   output(attackedPlanets);
