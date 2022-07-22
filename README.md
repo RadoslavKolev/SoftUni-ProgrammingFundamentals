@@ -139,4 +139,24 @@ This repository contains the Programming Fundamentals course from SoftUni
       <li>Manipulating Strings (Concatenating, Searching, Substring, Splitting, Replacing)</li>
     </ul>  
   </li>
+  <li><h3>Problem Solving</h3>
+    <ul>
+      <li>Problems: Definition and Problem Solving</li>
+      <li>Stages of Problem Solving</li>
+      <li>Solving Exam Problems: Tips and Best Practices</li>
+    </ul>  
+  </li>
+  <li><h3>Regular Expressions</h3>
+    <ul>
+      <li>Regular Expressions Syntax
+        <ul>
+          <li>Definition and Pattern</li>
+          <li>Predefined Character Classes</li>
+        </ul>
+      </li>
+      <li>Quantifiers and Grouping</li>
+      <li> Backreferences</li>
+      <li>Regular Expressions in JavaScript</li>
+    </ul>  
+  </li>
 </ul>
