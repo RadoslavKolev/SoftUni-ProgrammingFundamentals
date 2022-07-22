@@ -11,9 +11,7 @@ function worldTour(input) {
       const [_, index, str] = element.split(':');
 
       if (index >= 0 && index < destinations.length) {
-        destinations = destinations.split('');
-        destinations.splice(index, 0, str);
-        destinations = destinations.join('');
+        destinations = destinations.slice(0, index) + str + destinations.slice(index)
       }
     } else if (element.includes('Remove Stop')) {
       let [_, startIndex, endIndex] = element.split(':');

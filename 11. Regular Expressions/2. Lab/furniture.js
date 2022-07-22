@@ -1,5 +1,5 @@
 function furniture(input) {
-  const pattern = />>(?<furniture>[A-Z][a-zA-Z]+)<<(?<price>\d+(\.\d+)?)!(?<quantity>\d+)/;
+  const pattern = />>(?<furniture>[A-Z][a-zA-Z]+)<<(?<price>[\d.]+)!(?<quantity>\d+)/;
   let total = 0;
   
   console.log('Bought furniture:');
