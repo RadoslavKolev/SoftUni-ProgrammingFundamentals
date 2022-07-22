@@ -4,7 +4,7 @@ function starEnigma(input) {
   const attackedPlanets = [];
   const destroyedPlanets = [];
 
-  const decryptedPattern = /@(?<planet>[A-Za-z]+)[^@\-!:>]*:(?<population>\d+)[^@\-!:>]*!(?<attackType>[A|D])![^@\-!:>]*\->(?<soldiers>\d+)/;
+  const decryptedPattern = /@(?<planet>[A-Za-z]+)[^@\-!:>]*:(?<population>\d+)[^@\-!:>]*!(?<attackType>[AD])![^@\-!:>]*\->(?<soldiers>\d+)/;
 
   for (let i = 0; i < messages; i++) {
     const currentMessage = input[i];

@@ -1,7 +1,7 @@
 function netherRealms(str) {
   const demons = str.split(/[, ]+/g)
     .sort((a, b) => a.localeCompare(b));
-  const healthPattern = /[^0-9+\-*\/\.]/g;
+  const healthPattern = /[^0-9+\-*/.]/g;
   const damagePattern = /-?[\d.]+/g;
 
   for (const demon of demons) {
