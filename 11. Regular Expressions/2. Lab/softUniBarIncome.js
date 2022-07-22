@@ -3,22 +3,21 @@ function softUniBarIncome(input) {
   let total = 0;
 
   for (const elem of input) {
-    if (elem === 'end of shift') {
-      break;
-    }
-
+    if (elem === 'end of shift') break;
+    
     const validItem = pattern.exec(elem);
 
-    if (validItem) {
-      let name = validItem.groups.name;
-      let product = validItem.groups.product;
-      let count = Number(validItem.groups.count);
-      let price = Number(validItem.groups.price);
-      let currentTotal = count * price;
-      total += currentTotal;
+    if (!validItem) continue;  
+    
+    const name = validItem.groups.name;
+    const product = validItem.groups.product;
+    const count = Number(validItem.groups.count);
+    const price = Number(validItem.groups.price);
+    
+    const currentTotal = count * price;
+    total += currentTotal;
 
-      console.log(`${name}: ${product} - ${currentTotal.toFixed(2)}`);
-    }    
+    console.log(`${name}: ${product} - ${currentTotal.toFixed(2)}`);
   }
 
   console.log(`Total income: ${total.toFixed(2)}`);

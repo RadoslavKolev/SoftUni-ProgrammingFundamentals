@@ -9,9 +9,9 @@ function netherRealms(str) {
     let damage = 0;
 
     demon.match(healthPattern)
-      .forEach(char => health += char.charCodeAt());
+      .forEach(letter => health += letter.charCodeAt());
 
-    let numbers = demon.match(damagePattern);
+    const numbers = demon.match(damagePattern);
 
     if (numbers) {
       damage = numbers.map(Number)
@@ -33,9 +33,7 @@ function netherRealms(str) {
 console.log('----------------------Test 1----------------------');
 netherRealms('M3ph-0.5s-0.5t0.0**');
 
-/* 
-  M3ph-0.5s-0.5t0.0** - 524 health, 8.00 damage
-*/
+// M3ph-0.5s-0.5t0.0** - 524 health, 8.00 damage
 
 console.log('----------------------Test 2----------------------');
 netherRealms('M3ph1st0**, Azazel');
@@ -48,6 +46,4 @@ netherRealms('M3ph1st0**, Azazel');
 console.log('----------------------Test 3----------------------');
 netherRealms('Gos/ho');
 
-/* 
-  Gos/ho - 512 health, 0.00 damage
-*/
+// Gos/ho - 512 health, 0.00 damage

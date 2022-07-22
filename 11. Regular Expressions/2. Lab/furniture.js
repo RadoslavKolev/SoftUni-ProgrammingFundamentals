@@ -1,24 +1,25 @@
 function furniture(input) {
   const pattern = />>(?<furniture>[A-Z][a-zA-Z]+)<<(?<price>[\d.]+)!(?<quantity>\d+)/;
-  let total = 0;
+  let totalCost = 0;
   
   console.log('Bought furniture:');
 
   for (const item of input) {
     const validItem = pattern.exec(item);
 
-    if (validItem === null) {
-      continue;
-    }
+    if (!validItem) continue;
 
     const furniture = validItem.groups.furniture;
-    console.log(furniture);
+    const price = Number(validItem.groups.price);
+    const quantity = Number(validItem.groups.quantity);
 
-    const currentTotal = Number(validItem.groups.price) * Number(validItem.groups.quantity);
-    total += currentTotal;
+    const currentCost = price * quantity;
+    totalCost += currentCost;
+
+    console.log(furniture);
   }
 
-  console.log(`Total money spend: ${total.toFixed(2)}`);
+  console.log(`Total money spend: ${totalCost.toFixed(2)}`);
 }
 
 console.log('----------------------Test 1----------------------');
@@ -57,7 +58,7 @@ furniture([
   Total money spend: 8593.09
 */
 
-console.log('----------------------Test 3---------------------- :)))))))');
+console.log('----------------------Test 3----------------------');
 furniture([
   '>Invalid<<!4',
   '>Invalid<<!2',

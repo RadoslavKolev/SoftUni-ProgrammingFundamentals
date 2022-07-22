@@ -5,20 +5,16 @@ function race(input) {
   const competitorsObj = {};
 
   for (const elem of input) {
-    if (elem === 'end of race') {
-      break;
-    }
+    if (elem === 'end of race') break;
 
     const name = elem.match(namePattern).join('');
 
-    if (!competitors.includes(name)) {
-      continue;
-    }
+    if (!competitors.includes(name)) continue;
 
     const distance = elem
       .match(distancePattern)
       .map(Number)
-      .reduce((total, num) => total + num);
+      .reduce((a, b) => a + b);
 
     if (!competitorsObj.hasOwnProperty(name)) {
       competitorsObj[name] = 0;

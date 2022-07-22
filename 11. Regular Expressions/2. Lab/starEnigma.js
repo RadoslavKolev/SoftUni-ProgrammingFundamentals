@@ -7,7 +7,7 @@ function starEnigma(input) {
   const decryptedPattern = /@(?<planet>[A-Za-z]+)[^@\-!:>]*:(?<population>\d+)[^@\-!:>]*!(?<attackType>[A|D])![^@\-!:>]*\->(?<soldiers>\d+)/;
 
   for (let i = 0; i < messages; i++) {
-    let currentMessage = input[i];
+    const currentMessage = input[i];
     let occurrences = 0;
 
     currentMessage
@@ -19,19 +19,17 @@ function starEnigma(input) {
         }
       });
 
-    let decryptedMessage = currentMessage
+    const decryptedMessage = currentMessage
       .split('')
       .map(letter => String.fromCharCode(letter.charCodeAt() - occurrences))
       .join('');
 
     const validMessage = decryptedPattern.exec(decryptedMessage);
 
-    if (validMessage === null) {
-      continue;
-    }
+    if (!validMessage) continue;
 
-    let planet = validMessage.groups.planet;
-    let attackType = validMessage.groups.attackType;
+    const planet = validMessage.groups.planet;
+    const attackType = validMessage.groups.attackType;
 
     if (attackType === 'A') {
       attackedPlanets.push(planet);
