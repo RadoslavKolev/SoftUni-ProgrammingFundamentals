@@ -20,18 +20,13 @@ function theImitationGame(input) {
 
     switch (command) {
       case 'Move':
-        const numberOfLetters = Number(value1);
-        decryptedMessage = move(decryptedMessage, numberOfLetters);
+        decryptedMessage = move(decryptedMessage, Number(value1));
         break;
       case 'Insert':
-        const index = Number(value1);
-        const value = value2;
-        decryptedMessage = insert(decryptedMessage, index, value);
+        decryptedMessage = insert(decryptedMessage, Number(value1), value2);
         break;
       case 'ChangeAll':
-        const textToReplace = value1;
-        const replacement = value2;
-        decryptedMessage = changeAll(decryptedMessage, textToReplace, replacement);
+        decryptedMessage = changeAll(decryptedMessage, value1, value2);
         break;
       default:
         console.log('No such command!');
