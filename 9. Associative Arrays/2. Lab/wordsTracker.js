@@ -14,12 +14,12 @@ function wordTracker(input) {
     tracker.set(word, counter);
   });
 
-  const sortedEntries = Array.from(tracker)
-    .sort((a, b) => b[1] - a[1]);
-
-  for (const [word, occurrences] of sortedEntries) {
-    console.log(`${word} - ${occurrences}`);
-  }
+  Array.from(tracker)
+    .sort((a, b) => b[1] - a[1])
+    .forEach(([word, occurrences]) => {
+      console.log(`${word} - ${occurrences}`);
+    }
+  );
 }
 
 console.log('---------------------- Test 1  ----------------------');

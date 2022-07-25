@@ -2,7 +2,7 @@ function garage(input) {
   const garages = {};
 
   input.forEach(elem => {
-    let [garageNumber, carInfo] = elem.split(' - ');
+    const [garageNumber, carInfo] = elem.split(' - ');
 
     if (!garages.hasOwnProperty(garageNumber)) {
       garages[garageNumber] = [];
@@ -12,7 +12,7 @@ function garage(input) {
 
     carInfo.split(', ')
       .forEach(info => {
-        let [key, value] = info.split(': ');
+        const [key, value] = info.split(': ');
         carInfoObj[key] = value;
       });
 
@@ -28,7 +28,7 @@ function garage(input) {
 
         Object.entries(carInfoObj)
           .forEach(([key, value]) => {
-            let buff = `${key} - ${value}`;
+            const buff = `${key} - ${value}`;
             output.push(buff);
           });
 

@@ -24,13 +24,9 @@ function softUniStudents(input) {
       let [username, credits, email, courseName] = newElem.split(' ');
       credits = Number(credits);
 
-      if (!courses.hasOwnProperty(courseName)) {
-        continue;
-      }
+      if (!courses.hasOwnProperty(courseName)) continue;
 
-      if (courses[courseName].capacity === 0) {
-        continue;
-      }
+      if (courses[courseName].capacity === 0) continue;
 
       courses[courseName].students.push({
         credits,
@@ -43,7 +39,7 @@ function softUniStudents(input) {
   }
 
   Object.entries(courses)
-    .sort(([courseA, objA], [courseB, objB]) => 
+    .sort(([courseA, objA], [courseB, objB]) =>
       Object.values(objB)[1].length - Object.values(objA)[1].length)
     .forEach(([course, obj]) => {
       console.log(`${course}: ${obj.capacity} places left`);
@@ -52,8 +48,10 @@ function softUniStudents(input) {
         .sort((a, b) => b.credits - a.credits)
         .forEach(student => {
           console.log(`--- ${student.credits}: ${student.username}, ${student.email}`);
-        });
-      });
+        }
+      );
+    }
+  );
 }
 
 console.log('---------------------- Test 1  ----------------------');

@@ -4,11 +4,9 @@ function arenaTier(input) {
   const pool = {};
 
   for (const elem of input) {
-    if (elem === 'Ave Cesar') {
-      break;
-    }
+    if (elem === 'Ave Cesar') break;
 
-    // inserting gladiators in the pool
+    // Inserting gladiators in the pool
     if (elem.includes('->')) { 
       let [gladiator, technique, skill] = elem.split(' -> ');
       skill = Number(skill);
@@ -24,7 +22,7 @@ function arenaTier(input) {
         pool[gladiator][technique] = 0;
       }
 
-      let oldSkill = pool[gladiator][technique];
+      const oldSkill = pool[gladiator][technique];
 
       // if the current skill is higher than the oldSkill on the current technique
       // replace it
@@ -34,20 +32,18 @@ function arenaTier(input) {
 
       // battle case
     } else if (elem.includes(' vs ')) { 
-      let [gladiatorA, gladiatorB] = elem.split(' vs ');
+      const [gladiatorA, gladiatorB] = elem.split(' vs ');
 
       // if one of them don't exist, skip the fight
-      if (!pool[gladiatorA] || !pool[gladiatorB]) {
-        continue;
-      }
+      if (!pool[gladiatorA] || !pool[gladiatorB]) continue;
 
       // [[technique1, skill1], [technique2, skill2]]
-      const entries = Object.entries(pool[gladiatorA]);
+      const techniques = Object.keys(pool[gladiatorA]);
       let sumSkillOne = 0;
       let sumSkillTwo = 0;
 
       // calculating the sum of the matching technique skills on both gladiators
-      for (let [technique, skill] of entries) {
+      for (const technique of techniques) {
         // if the second gladiator has the same technique as the first
         // add its skill to the sumSkill properties
         if (pool[gladiatorB].hasOwnProperty(technique)) {
@@ -77,7 +73,7 @@ function arenaTier(input) {
     }
 
     // we need only the values
-    let skills = Object.values(techniquesObj);
+    const skills = Object.values(techniquesObj);
     let currentSum = 0;
 
     // calculates the total sum of the current gladiator skills
@@ -96,7 +92,7 @@ function arenaTier(input) {
     });
 
   // output loop
-  for (let [gladiator, skill] of sortedGladiators) {
+  for (const [gladiator, skill] of sortedGladiators) {
     console.log(`${gladiator}: ${skill} skill`);
 
     // sorts the techniques in the pool by descending skills

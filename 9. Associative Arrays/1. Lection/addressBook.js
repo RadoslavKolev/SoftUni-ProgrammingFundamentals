@@ -2,15 +2,16 @@ function addressBook(input) {
   const addressInfo = {};
 
   input.forEach(elem => {
-    let [name, address] = elem.split(':');
+    const [name, address] = elem.split(':');
     addressInfo[name] = address;
   });
 
-  const sortedKeys = Object.keys(addressInfo)
+  Object.keys(addressInfo)
     .sort((a, b) => a.localeCompare(b))
     .forEach(key => {
       console.log(`${key} -> ${addressInfo[key]}`);
-    });
+    }
+  );
 }
 
 // Test 1

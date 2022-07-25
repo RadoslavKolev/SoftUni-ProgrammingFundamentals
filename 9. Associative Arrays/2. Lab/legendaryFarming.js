@@ -1,18 +1,18 @@
 function legendaryFarming(input) {
   const GOAL = 250;
   const materials = input.split(' ');
+  const junk = {};
+  let isObtained = false;
+
   const materialsObj = {
     'shards': 0,
     'fragments': 0,
     'motes': 0,
   };
-  const junk = {};
-
-  let isObtained = false;
 
   while (materials.length > 0) {
-    let quantity = Number(materials.shift());
-    let material = materials.shift().toLowerCase();
+    const quantity = Number(materials.shift());
+    const material = materials.shift().toLowerCase();
 
     switch (material) {
       case 'shards':

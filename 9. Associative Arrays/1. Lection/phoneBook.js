@@ -2,7 +2,7 @@ function phoneBook(input) {
   const phoneBook = {};
 
   input.forEach(elem => {
-    let [name, phone] = elem.split(' ');
+    const [name, phone] = elem.split(' ');
     phoneBook[name] = phone;
   });
 

@@ -2,7 +2,7 @@ function companyUsers(input) {
   const companies = new Map();
 
   input.forEach(elem => {
-    let [company, id] = elem.split(' -> ');
+    const [company, id] = elem.split(' -> ');
 
     if (!companies.has(company)) {
       companies.set(company, new Set());
@@ -19,7 +19,8 @@ function companyUsers(input) {
         .forEach(employee => {
           console.log(`-- ${employee}`);
         });
-    });
+    }
+  );
 }
 
 console.log('---------------------- Test 1  ----------------------');

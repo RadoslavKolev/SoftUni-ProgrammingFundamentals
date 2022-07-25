@@ -19,71 +19,68 @@ function armies(input) {
 
   input.forEach(elem => {
     if (elem.includes('arrives')) {
-      let leader = elem.replace(' arrives', '');
+      const leader = elem.replace(' arrives', '');
       addLeader(armyObj, leader);
-
     } else if (elem.includes(':')) {
-      let [leader, army] = elem.split(': ');
+      const [leader, army] = elem.split(': ');
       let [armyName, armyCount] = army.split(', ');
       armyCount = Number(armyCount);
 
       if (armyObj.hasOwnProperty(leader)) {
         addArmy(armyObj, leader, armyName, armyCount);
       }
-
     } else if (elem.includes('+')) {
       let [armyName, armyCount] = elem.split(' + ');
       armyCount = Number(armyCount);
 
-      const leaders = Object.keys(armyObj);
-
-      for (const leader of leaders) {
-        if (armyObj[leader].hasOwnProperty(armyName)) {
-          incrementArmy(armyObj, leader, armyName, armyCount);
+      Object.keys(armyObj)
+        .forEach(leader => {
+          if (armyObj[leader].hasOwnProperty(armyName)) {
+            incrementArmy(armyObj, leader, armyName, armyCount);
+          }
         }
-      }
-
+      );
     } else if (elem.includes('defeated')) {
-      let leader = elem.replace(' defeated', '');
+      const leader = elem.replace(' defeated', '');
 
       if (armyObj.hasOwnProperty(leader)) {
         removeLeader(armyObj, leader);
       }
-
     }
   });
 
   const totalArmyCount = {};
-  const armyArr = Object.entries(armyObj);
 
-  for (const [leader, army] of armyArr) {
-    if (!totalArmyCount.hasOwnProperty(leader)) {
-      totalArmyCount[leader] = 0;
+  Object.entries(armyObj)
+    .forEach(([leader, army]) => {
+      if (!totalArmyCount.hasOwnProperty(leader)) {
+        totalArmyCount[leader] = 0;
+      }
+  
+      const armiesCount = Object.values(army);
+      let totalArmySum = 0;
+  
+      for (const currentArmy of armiesCount) {
+        totalArmySum += currentArmy;
+      }
+  
+      totalArmyCount[leader] = totalArmySum;
     }
+  );
 
-    const armiesCount = Object.values(army);
-    let totalArmySum = 0;
+  Object.entries(totalArmyCount)
+    .sort(([leaderA, armyA], [leaderB, armyB]) => armyB - armyA)
+    .forEach(([leader, totalArmy]) => {
+      console.log(`${leader}: ${totalArmy}`);
 
-    for (const currentArmy of armiesCount) {
-      totalArmySum += currentArmy;
+      Object.entries(armyObj[leader])
+        .sort(([armyA, countA], [armyB, countB]) => countB - countA)
+        .forEach(([army, count]) => {
+          console.log(`>>> ${army} - ${count}`);
+        }
+      );
     }
-
-    totalArmyCount[leader] = totalArmySum;
-  }
-
-  const sortedLeaders = Object.entries(totalArmyCount)
-    .sort(([leaderA, armyA], [leaderB, armyB]) => armyB - armyA);
-
-  for (const [leader, totalArmy] of sortedLeaders) {
-    console.log(`${leader}: ${totalArmy}`);
-
-    const sortedArmy = Object.entries(armyObj[leader])
-      .sort(([armyA, countA], [armyB, countB]) => countB - countA);
-
-    for (const [army, count] of sortedArmy) {
-      console.log(`>>> ${army} - ${count}`);
-    }
-  }
+  );
 }
 
 console.log('---------------------- Test 1  ----------------------');

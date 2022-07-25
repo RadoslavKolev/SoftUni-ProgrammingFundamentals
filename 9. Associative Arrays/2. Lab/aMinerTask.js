@@ -2,8 +2,8 @@ function aMinerTask(input) {
   const items = {};
 
   while (input.length !== 0) {
-    let resource = input.shift();
-    let quantity = Number(input.shift());
+    const resource = input.shift();
+    const quantity = Number(input.shift());
 
     if (!items.hasOwnProperty(resource)) {
       items[resource] = quantity;

@@ -25,8 +25,8 @@ function cardGame(input) {
   const players = new Map();
 
   input.forEach(elem => {
-    let [name, deck] = elem.split(': ');
-    deck = deck.split(', ');
+    const [name, deckToSplit] = elem.split(': ');
+    const deck = deckToSplit.split(', ');
 
     if (!players.has(name)) {
       players.set(name, new Set(deck));
@@ -44,7 +44,7 @@ function cardGame(input) {
   const entries = [...players];
 
   for (const [name, deck] of entries) {
-    let totalPoints = Array.from(deck)
+    const totalPoints = Array.from(deck)
       .map(card => cardPower[card[0]] * cardType[card[card.length - 1]])
       .reduce((a, b) => a + b, 0);
 

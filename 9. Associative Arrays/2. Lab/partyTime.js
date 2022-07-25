@@ -12,10 +12,9 @@ function partyTime(input) {
       continue;
     }
 
-    let firstLetter = Number(guest[0]);
+    const firstLetter = Number(guest[0]);
 
     if (!isParty) {
-
       if (Number.isInteger(firstLetter)) {
         guests.vip.push(guest);
       } else {
@@ -24,19 +23,20 @@ function partyTime(input) {
     } else {
       if (Number.isInteger(firstLetter)) {
         if (guests.vip.includes(guest)) {
-          let index = guests.vip.indexOf(guest);
+          const index = guests.vip.indexOf(guest);
           guests.vip.splice(index, 1);
         }
       } else {
         if (guests.regular.includes(guest)) {
-          let index = guests.regular.indexOf(guest);
+          const index = guests.regular.indexOf(guest);
           guests.regular.splice(index, 1);
         }
       }
     }
   }
 
-  let guestsLeft = guests.vip.length + guests.regular.length;
+  const guestsLeft = guests.vip.length + guests.regular.length;
+  
   console.log(guestsLeft);
   console.log(guests.vip.join('\n'));
   console.log(guests.regular.join('\n'));

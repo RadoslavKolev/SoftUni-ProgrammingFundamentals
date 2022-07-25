@@ -1,12 +1,10 @@
 function wordOccurrences(input) {
-  let words = new Map();
+  const words = new Map();
 
   for (const wordToCheck of input) {
     let counter = 0;
 
-    if (words.has(wordToCheck)) {
-      continue;
-    }
+    if (words.has(wordToCheck)) continue;
 
     input.forEach(word => {
       if (word === wordToCheck) {
@@ -16,13 +14,14 @@ function wordOccurrences(input) {
 
     words.set(wordToCheck, counter);
   }
-  
-  let sorted = Array.from(words)
-    .sort((a, b) => b[1] - a[1]);
-  
-  for (const [key, value] of sorted) {
-    console.log(`${key} -> ${value} times`);
-  }
+
+  console.table(words);
+
+  Array.from(words)
+    .sort((a, b) => b[1] - a[1])
+    .forEach(([key, value]) => {
+      console.log(`${key} -> ${value} times`);
+    });
 }
 
 

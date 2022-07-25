@@ -3,7 +3,7 @@ function bookShelf(input) {
 
   for (const elem of input) {
     if (elem.includes('->')) {
-      let [id, genre] = elem.split(' -> ');
+      const [id, genre] = elem.split(' -> ');
 
       if (!shelves.hasOwnProperty(id)) {
         shelves[id] = {
@@ -11,7 +11,7 @@ function bookShelf(input) {
         };
       }
     } else if (elem.includes(': ')) {
-      let [bookInfo, genre] = elem.split(', ');
+      const [bookInfo, genre] = elem.split(', ');
       const keys = Object.keys(shelves);
 
       for (const key of keys) {
@@ -27,14 +27,17 @@ function bookShelf(input) {
     .sort((a, b) => Object.entries(shelves[b])[0][1].length - Object.entries(shelves[a])[0][1].length)
     .forEach(id => {
       console.log(`${id} ${Object.keys(shelves[id])}: ${Object.values(shelves[id])[0].length}`);
+
       Object.values(shelves[id])
         .forEach(values => {
           values.sort((a, b) => a.localeCompare(b))
             .forEach(v => {
               console.log(`--> ${v}`);
             });
-        });
-    });
+        }
+      );
+    }
+  );
 }
 
 console.log('---------------------- Test 1  ----------------------');

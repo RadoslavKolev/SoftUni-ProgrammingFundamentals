@@ -2,7 +2,7 @@ function meetings(input) {
   const meetings = {};
 
   input.forEach(elem => {
-    let [weekday, name] = elem.split(' ');
+    const [weekday, name] = elem.split(' ');
 
     if (meetings.hasOwnProperty(weekday)) {
       console.log(`Conflict on ${weekday}!`);

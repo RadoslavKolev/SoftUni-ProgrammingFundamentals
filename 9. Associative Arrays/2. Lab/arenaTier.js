@@ -4,6 +4,7 @@ function arenaTier(input) {
   function add(elem) {
     let [gladiator, skill, power] = elem.split(' -> ');
     power = Number(power);
+
     if (!list.hasOwnProperty(gladiator)) {
       list[gladiator] = {};
       list[gladiator][skill] = power;
@@ -11,7 +12,7 @@ function arenaTier(input) {
       if (!list[gladiator].hasOwnProperty(skill)) {
         list[gladiator][skill] = power;
       } else {
-        let oldPower = list[gladiator][skill];
+        const oldPower = list[gladiator][skill];
 
         if (power > oldPower) {
           list[gladiator][skill] = power;
@@ -21,11 +22,11 @@ function arenaTier(input) {
   }
 
   function battle(el) {
-    let [gladiatorA, gladiatorB] = el.split(' vs ');
+    const [gladiatorA, gladiatorB] = el.split(' vs ');
 
     if (list.hasOwnProperty(gladiatorA) && list.hasOwnProperty(gladiatorB)) {
-      let skillA = list[gladiatorA];
-      let skillB = list[gladiatorB];
+      const skillA = list[gladiatorA];
+      const skillB = list[gladiatorB];
 
       for (let elemA in skillA) {
         for (let elemB in skillB) {

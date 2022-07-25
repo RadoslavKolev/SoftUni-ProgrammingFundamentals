@@ -6,17 +6,17 @@ function comments(input) {
   input.forEach(elem => {
     // add user to the users
     if (elem.includes('user ')) {
-      let username = elem.replace('user ', '');
+      const username = elem.replace('user ', '');
       users.push(username);
 
       // add article to the articles
     } else if (elem.includes('article ')) {
-      let article = elem.replace('article ', '');
+      const article = elem.replace('article ', '');
       articles.push(article);
     } else {
-      let newElem = elem.replace(' posts on', ',');
-      let [username, articleComment, commentContent] = newElem.split(', ');
-      let [articleName, commentTitle] = articleComment.split(': ');
+      const newElem = elem.replace(' posts on', ',');
+      const [username, articleComment, commentContent] = newElem.split(', ');
+      const [articleName, commentTitle] = articleComment.split(': ');
 
       // if the username and the article exists
       if (users.includes(username) && articles.includes(articleName)) {
@@ -51,6 +51,7 @@ function comments(input) {
     .sort(([article1, obj1], [article2, obj2]) => obj2.totalComments - obj1.totalComments)
     .forEach(([article, obj]) => {
       console.log(`Comments on ${article}`);
+      
       Object.entries(obj)
         .filter(([user]) => user !== 'totalComments')
         .sort(([user1], [user2]) => user1.localeCompare(user2)) // sort users alphabetically
@@ -58,8 +59,10 @@ function comments(input) {
           comment.forEach(item => { // we loop through the comments of the current user
             console.log(`--- From user ${user}: ${item.title} - ${item.content}`);
           });
-        });
-    });
+        }
+      );
+    }
+  );
 }
 
 console.log('---------------------- Test 1  ----------------------');

@@ -1,23 +1,23 @@
 function schoolGrades(input) {
-  let map = new Map();
+  const map = new Map();
 
   input.forEach(elem => {
-    let tokens = elem.split(' ');
-    let name = tokens.shift();
-    let grades = tokens.map(Number);
+    const tokens = elem.split(' ');
+    const name = tokens.shift();
+    const grades = tokens.map(Number);
 
     if (!map.has(name)) {
       map.set(name, grades);
     } else {
-      let existingGrades = map.get(name);
+      const existingGrades = map.get(name);
       grades.forEach(x => existingGrades.push(x));
     }
   });
 
-  let sorted = Array.from(map)
+  const sorted = Array.from(map)
     .sort((a, b) => a[0].localeCompare(b[0]));
 
-  for (let [name, grades] of sorted) {
+  for (const [name, grades] of sorted) {
     let avgGrade = 0;
     grades.forEach(x => avgGrade += x);
     avgGrade /= grades.length;

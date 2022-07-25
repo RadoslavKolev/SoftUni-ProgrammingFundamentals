@@ -2,7 +2,7 @@ function piccolo(input) {
   const parkingLot = new Set();
 
   input.forEach(elem => {
-    let [command, carNumber] = elem.split(', ');
+    const [command, carNumber] = elem.split(', ');
 
     switch (command) {
       case 'IN':
@@ -21,7 +21,7 @@ function piccolo(input) {
     console.log('Parking Lot is Empty');
   } else {
     const sortedParking = Array.from(parkingLot)
-    .sort((a, b) => a.localeCompare(b));
+      .sort((a, b) => a.localeCompare(b));
 
     console.log(sortedParking.join('\n'));
   }

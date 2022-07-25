@@ -15,7 +15,7 @@ function travelTime(input) {
     if (!towns.has(town)) {
       towns.set(town, price);
     } else {
-      let currentPrice = towns.get(town);
+      const currentPrice = towns.get(town);
       if (price < currentPrice) {
         towns.set(town, price);
       }
@@ -28,7 +28,7 @@ function travelTime(input) {
     .sort((a, b) => a[0].localeCompare(b[0]));
 
   for (const [country, cities] of sortedCountries) {
-    let sortedCities = Array.from(cities)
+    const sortedCities = Array.from(cities)
       .sort((a, b) => a[1] - b[1])
       .map(city => city.join(' -> '));
 

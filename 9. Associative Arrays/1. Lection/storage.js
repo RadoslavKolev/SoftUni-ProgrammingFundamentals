@@ -1,13 +1,13 @@
 function storage(input) {
-  let items = new Map();
+  const items = new Map();
 
   input.forEach(elem => {
     let [item, quantity] = elem.split(' ');
     quantity = Number(quantity);
 
     if (items.has(item)) {
-      let oldQuantity = items.get(item);
-      let newQuantity = oldQuantity + quantity;
+      const oldQuantity = items.get(item);
+      const newQuantity = oldQuantity + quantity;
       items.set(item, newQuantity);
     } else {
       items.set(item, quantity);
