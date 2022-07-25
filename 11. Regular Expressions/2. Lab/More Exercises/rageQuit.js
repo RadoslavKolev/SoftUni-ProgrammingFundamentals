@@ -10,6 +10,7 @@ function rageQuit(input) {
     text += currentString.toUpperCase().repeat(timesToRepeat);
   }
 
+  // We need to find the unique symbols used
   const uniqueSymbols = new Set(text);
 
   console.log(`Unique symbols used: ${uniqueSymbols.size}`);

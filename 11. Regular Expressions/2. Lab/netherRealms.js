@@ -2,8 +2,8 @@ function netherRealms(str) {
   const demons = str.split(/[, ]+/g)
     .sort((a, b) => a.localeCompare(b));
 
-  const healthPattern = /[^0-9+*/.-]/g;
-  const damagePattern = /-?[\d.]+/g;
+  const healthPattern = /[^0-9+*/.-]/g; 
+  const damagePattern = /-?[\d.]+/g;  // integer or decimal (optional negative)
   const checkPattern = /[*/]/;
 
   for (const demon of demons) {
@@ -17,6 +17,7 @@ function netherRealms(str) {
       damage = numbers.map(Number)
         .reduce((a, b) => a + b);
 
+      // If there are * or / in the string
       if (checkPattern.test(demon)) {
         for (const letter of demon) {
           if (letter === '*') {

@@ -1,27 +1,35 @@
 function postOffice(input) {
   const [first, second, third] = input[0].split('|');
   const capitalPattern = /([#$%*&])[A-Z]+\1/g;
+
+  // Puts the capital letters in array and removes their surrounder
   const capitalLetters = first
     .match(capitalPattern)
     .join('')
     .replace(/[#$%*&]/g, '')
     .split('');
 
+  // Sets the unique numbers
   const validNumbers = new Set(second.match(/\d+:\d{2}/g));
   const wordsToCheck = third.split(' ');
+
+  // Saves the starting letter and length of the expected word
   const expectedWordsObj = {};
 
+  // First we iterate through capitalLetters, because the output wants so
   for (const letter of capitalLetters) {
+    // Fills the object with data
     for (const item of validNumbers) {
       let [asciiCode, wordLength] = item.split(':');
   
+      // if the number starts with leading 0, it removes it
       if (wordLength.startsWith('0')) {
         wordLength = wordLength.replace('0', '');
       }
   
       asciiCode = Number(asciiCode);
-      wordLength = Number(wordLength) + 1;
-      const letter = String.fromCharCode(asciiCode);
+      wordLength = Number(wordLength) + 1;  // +1 includes the capital letter
+      const letter = String.fromCharCode(asciiCode); // expected letter
   
       if (!capitalLetters.includes(letter)) continue;
   
@@ -30,6 +38,7 @@ function postOffice(input) {
 
     if (!expectedWordsObj.hasOwnProperty(letter)) continue;
 
+    // We take the expected word length from the object
     const wordLength = expectedWordsObj[letter];
 
     for (const word of wordsToCheck) {

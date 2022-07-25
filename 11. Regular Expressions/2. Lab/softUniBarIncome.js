@@ -8,6 +8,8 @@ function softUniBarIncome(input) {
     const validItem = pattern.exec(elem);
 
     if (!validItem) continue;  
+
+    // let {name, product, count, price} = validItem.groups;
     
     const name = validItem.groups.name;
     const product = validItem.groups.product;

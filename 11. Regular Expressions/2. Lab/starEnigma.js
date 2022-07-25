@@ -10,6 +10,7 @@ function starEnigma(input) {
     const currentMessage = input[i];
     let occurrences = 0;
 
+    // Counts the occurrences of 's', 't', 'a', 'r' (case-insensitive)
     currentMessage
       .toLowerCase()
       .split('')
@@ -19,6 +20,7 @@ function starEnigma(input) {
         }
       });
 
+    // Decrypting the message
     const decryptedMessage = currentMessage
       .split('')
       .map(letter => String.fromCharCode(letter.charCodeAt() - occurrences))
@@ -38,6 +40,7 @@ function starEnigma(input) {
     }
   }
 
+  // Function for the array output 
   const output = arr => {
     if (arr.length !== 0) {
       arr.sort((a, b) => a.localeCompare(b))

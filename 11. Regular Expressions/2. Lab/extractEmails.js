@@ -1,6 +1,7 @@
 function extractEmails(input) {
   const emailPattern = /(?<user> [A-Za-z0-9]+[-.\w]*)@(?<host>[a-zA-Z-]+\.[A-Za-z-]+[A-Za-z-.]*)\b/g;
 
+  // trim() removes the left space
   const validEmails = input.match(emailPattern)
     .map(email => email.trim());
 

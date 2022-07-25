@@ -9,6 +9,9 @@ function furniture(input) {
 
     if (!validItem) continue;
 
+    // We can destructure the groups:
+    // let {furniture, price, quantity} = validItem.groups;
+
     const furniture = validItem.groups.furniture;
     const price = Number(validItem.groups.price);
     const quantity = Number(validItem.groups.quantity);

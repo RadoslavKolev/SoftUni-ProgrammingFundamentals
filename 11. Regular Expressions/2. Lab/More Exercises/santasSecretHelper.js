@@ -5,6 +5,7 @@ function santasSecretHelper(input) {
   for (const message of input) {
     if (message === 'end') break;
 
+    // Decrypting the message
     const decrypted = message
       .split('')
       .map(letter => String.fromCharCode(letter.charCodeAt() - key))
@@ -17,7 +18,7 @@ function santasSecretHelper(input) {
     const name = validMessage.groups.name;
     const behavior = validMessage.groups.behavior;
 
-    if (behavior === 'Y') {
+    if (behavior === 'G') {
       console.log(name);
     } 
   }
