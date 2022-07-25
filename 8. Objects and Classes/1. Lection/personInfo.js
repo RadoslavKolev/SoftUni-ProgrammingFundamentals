@@ -1,33 +1,20 @@
-// function personInfo(firstName, lastName, age) {
-//   const person = {
-//     firstName: firstName,
-//     lastName: lastName,
-//     age: age,
-//   };
-//   return person;
-// }
-
-/* Shorthand where the key and the prop have the same name */
-
-// function personInfo(firstName, lastName, age) {
-//   const person = {
-//     firstName,
-//     lastName,
-//     age,
-//   };
-//   return person;
-// }
-
-    
-// Even shorter syntax
 function personInfo(firstName, lastName, age) {
-  return {
+  const person = {
     firstName,
     lastName,
     age,
   };
+
+  console.log(person)
 }
 
-console.log(personInfo("Peter", "Pan", "20"));
-console.log(personInfo("George", "Smith", "18"));
+console.log('------------------Test 1------------------');
+personInfo("Peter", "Pan", "20");
+
+// {firstName: 'Peter', lastName: 'Pan', age: '20'}
+
+console.log('------------------Test 2------------------');
+personInfo("George", "Smith", "18");
+
+// {firstName: 'George', lastName: 'Smith', age: '18'}
 

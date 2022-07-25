@@ -11,19 +11,20 @@ function songs(songs) {
     }
   }
 
-  let numberOfSongs = Number(songs.shift());
-  let typeList = songs.pop();
+  const numberOfSongs = Number(songs.shift());
+  const typeList = songs.pop();
 
   for (let i = 0; i < numberOfSongs; i++) {
-    let [type, name, time] = songs[i].split('_');
+    const [type, name, time] = songs[i].split('_');
     const song = new Song(type, name, time);
+
     if (type === typeList || typeList === 'all') {
       song.printSongName();
     }
   }
 }
 
-
+console.log('------------------Test 1------------------');
 songs([
   3,
   'favourite_DownTown_3:14',
@@ -32,6 +33,13 @@ songs([
   'favourite'
 ]);
 
+/*
+  DownTown
+  Kiss
+  Smooth Criminal
+*/
+
+console.log('------------------Test 2------------------');
 songs([
   4,
   'favourite_DownTown_3:14',
@@ -41,9 +49,17 @@ songs([
   'listenLater'
 ]);
 
+// Andalouse
+
+console.log('------------------Test 3------------------');
 songs([
   2,
   'like_Replay_3:15',
   'ban_Photoshop_3:48',
   'all'
 ]);
+
+/* 
+  Replay
+  Photoshop
+*/

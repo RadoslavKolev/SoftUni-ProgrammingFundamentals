@@ -1,18 +1,18 @@
 function schoolRegister(input) {
   // Array of student objects with grade higher than 2.99
-  const passedStudents = [];  
+  const passedStudents = [];
 
   // Pushing all the passed students (higher than 2.99) as objects
   for (const elem of input) {
-    let student = elem.split(', ');
-    let name = student[0].replace('Student name: ', '');
-    let grade = Number(student[1].replace('Grade: ', ''));
-    let averageScore = Number(
+    const student = elem.split(', ');
+    const name = student[0].replace('Student name: ', '');
+    const grade = Number(student[1].replace('Grade: ', ''));
+    const averageScore = Number(
       student[2].replace('Graduated with an average score: ', '')
     );
 
     // Creating the object
-    let studentObj = {
+    const studentObj = {
       name,
       grade,
       averageScore,
@@ -26,19 +26,21 @@ function schoolRegister(input) {
   // Sorting the students by their grade
   const sortedStudents = passedStudents.sort((a, b) => a.grade - b.grade);
 
-  let previousGrade = 0;  // To check if the grade is the same
+  // To check if the grade is the same
+  let previousGrade = 0;
 
   for (const student of sortedStudents) {
-    let currentStudents = [];   // Holds the current grade student names
-    let currentAverage = 0;     // Current grade average score
+    // Holds the current grade student names
+    const currentStudents = [];
+
+    // Current grade average score
+    let currentAverage = 0;
     let gradeSum = 0;
     let currentGrade = student.grade;
 
     // If the grade is the same, continue to the next student
     // Otherwise it doubles the output
-    if (currentGrade === previousGrade) {
-      continue;
-    }
+    if (currentGrade === previousGrade) continue;
 
     console.log(`${currentGrade + 1} Grade`);
 
@@ -61,7 +63,6 @@ function schoolRegister(input) {
   }
 }
 
-// Test 1 
 console.log('\n----------------Test 1----------------\n');
 
 schoolRegister([
@@ -79,7 +80,7 @@ schoolRegister([
   "Student name: Gavin, Grade: 10, Graduated with an average score: 4.00"
 ]);
 
-/* Results: 
+/*
   9 Grade
   List of students: Mark, Daryl
   Average annual score from last year: 5.35
@@ -97,7 +98,6 @@ schoolRegister([
   Average annual score from last year: 5.02
 */
 
-// Test 2
 console.log('\n----------------Test 2----------------\n');
 
 schoolRegister([
@@ -110,7 +110,7 @@ schoolRegister([
   'Student name: Gary, Grade: 1, Graduated with an average score: 5.15'
 ]);
 
-/* Results: 
+/* 
   2 Grade
   List of students: Gary
   Average annual score from last year: 5.15

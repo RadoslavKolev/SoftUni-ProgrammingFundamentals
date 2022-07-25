@@ -1,11 +1,11 @@
 function browserHistory(obj, arr) {
-  let browser = obj["Browser Name"];
-  let openTabs = obj["Open Tabs"];
-  let recentlyClosed = obj["Recently Closed"];
-  let browserLogs = obj["Browser Logs"];
+  const browser = obj["Browser Name"];
+  const openTabs = obj["Open Tabs"];
+  const recentlyClosed = obj["Recently Closed"];
+  const browserLogs = obj["Browser Logs"];
 
   arr.forEach(element => {
-    let [command, tab] = element.split(' ');
+    const [command, tab] = element.split(' ');
 
     switch (command) {
       case 'Open':
@@ -14,16 +14,17 @@ function browserHistory(obj, arr) {
         break;
       case 'Close':
         if (openTabs.includes(tab)) {
-          let index = openTabs.indexOf(tab);
-          let removedTab = openTabs.splice(index, 1).toString();
+          const index = openTabs.indexOf(tab);
+          const removedTab = openTabs.splice(index, 1).toString();
           recentlyClosed.push(removedTab);
           browserLogs.push(element);
         }
         break;
       default:
-        openTabs = [];
-        recentlyClosed = [];
-        browserLogs = [];
+        // Empty the arrays
+        openTabs.splice(0, openTabs.length);
+        recentlyClosed.splice(0, recentlyClosed.length);
+        browserLogs.splice(0, browserLogs.length);
         break;
     }
   });

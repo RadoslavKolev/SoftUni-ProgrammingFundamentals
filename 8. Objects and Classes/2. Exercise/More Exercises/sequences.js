@@ -5,26 +5,33 @@ function sequences(input) {
   // Sorting the arrays in descending order
   input.forEach(arr => arr.sort((a, b) => b - a));
 
-  let uniqueArrays = [];   // Holds the unique arrays
-  for (let i = 0; i < input.length; i++) {
-    let currentArray = input[i];
+  // Holds the unique arrays
+  const uniqueArrays = [];  
+  const len = input.length; 
+
+  for (let i = 0; i < len; i++) {
+    const currentArray = input[i];
+    const uniqueLen = uniqueArrays.length;
     let isUnique = true;
+
     // Loops through the unique arrays
     for (let j = 0; j < uniqueArrays.length; j++) {
-      let arrToCheck = uniqueArrays[j];
+      const arrToCheck = uniqueArrays[j];
+
       if (arrToCheck.toString() === currentArray.toString()) {
         isUnique = false;
         break;
       }
     }
+
     if (isUnique) {
       uniqueArrays.push(currentArray);
     }
   }
 
   // Sorting the arrays by length and printing on the console
-  uniqueArrays.sort((a, b) => a.length - b.length);
-  uniqueArrays.forEach(el => console.log(`[${el.join(', ')}]`));
+  uniqueArrays.sort((a, b) => a.length - b.length)
+    .forEach(el => console.log(`[${el.join(', ')}]`));
 }
 
 // Test 1 

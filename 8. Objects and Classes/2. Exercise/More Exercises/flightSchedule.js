@@ -1,26 +1,34 @@
 function flightSchedule(input) {
-  const flights = input.shift(); // Array for all the flights on a specific sector
-  const newStatuses = input.shift(); // Array with the newly changed statuses
-  const statusToCheck = input.shift().toString(); // Single string
+  // Array for all the flights on a specific sector
+  const flights = input.shift();
 
-  const allFlights = []; // This array will hold object elements
+  // Array with the newly changed statuses
+  const newStatuses = input.shift();
+
+  // Single string
+  const statusToCheck = input.shift().toString();
+
+  // This array will hold object elements
+  const allFlights = [];
 
   // Pushing all the initial flights to the array - objects
   for (const elem of flights) {
-    let token = elem.split(' ');
-    let plane = token.shift(); 
-    let destination = token.join(' ');  // Some cities have 2 names
-    
-    let flight = {
+    const token = elem.split(' ');
+    const plane = token.shift();
+    const destination = token.join(' '); // Some cities have 2 names
+
+    const flight = {
       plane,
       destination,
     };
+
     allFlights.push(flight);
   }
 
   // Changing the statuses of the existing flights
   for (const elem of newStatuses) {
-    let [plane, status] = elem.split(' ');
+    const [plane, status] = elem.split(' ');
+
     allFlights.forEach(flight => {
       if (flight.plane === plane) {
         flight.status = status;
@@ -69,14 +77,14 @@ flightSchedule([
   ['Cancelled']
 ]);
 
-/* Results:
+/*
   { Destination: 'Alabama', Status: 'Cancelled' }
   { Destination: 'California', Status: 'Cancelled' }
   { Destination: 'Texas', Status: 'Cancelled' }
 */
 
 
-// Test 2
+
 console.log('\n----------------Test 2----------------\n');
 
 flightSchedule([
@@ -99,7 +107,7 @@ flightSchedule([
   ['Ready to fly']
 ]);
 
-/* Results:
+/*
   { Destination: 'Delaware', Status: 'Ready to fly' }
   { Destination: 'Oregon', Status: 'Ready to fly' }
   { Destination: 'Las Vegas', Status: 'Ready to fly' }

@@ -2,7 +2,7 @@ function catalogue(input) {
   const catalogue = {};
 
   for (const elem of input) {
-    let [name, price] = elem.split(' : ');
+    const [name, price] = elem.split(' : ');
     catalogue[name] = price;
   }
 
@@ -21,6 +21,7 @@ function catalogue(input) {
   }
 }
 
+console.log('------------------Test 1------------------');
 catalogue([
   'Apricot : 20.4',
   'Fridge : 1500',
@@ -30,4 +31,36 @@ catalogue([
   'Apple : 1.25',
   'Anti-Bug Spray : 15 ',
   'T-Shirt : 10'
-])
+]);
+
+/* 
+  A
+    Anti-Bug Spray: 15
+    Apple: 1.25
+    Appricot: 20.4
+  B
+    Boiler: 300
+  D
+    Deodorant: 10
+  F
+    Fridge: 1500
+  T
+    T-Shirt: 10
+    TV: 1499
+*/
+
+console.log('------------------Test 2------------------');
+catalogue([
+  'Omlet : 5.4',
+  'Shirt : 15',
+  'Cake : 59'
+]);
+
+/* 
+  C
+    Cake: 59
+  O
+    Omlet: 5.4
+  S
+    Shirt: 15
+*/

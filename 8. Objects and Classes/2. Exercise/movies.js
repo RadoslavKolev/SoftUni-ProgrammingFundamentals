@@ -3,19 +3,22 @@ function movies(input) {
 
   for (const elem of input) {
     if (elem.includes('addMovie')) {
-      let movie = elem.replace('addMovie ', '');
+      const movie = elem.replace('addMovie ', '');
+
       moviesArr.push({
         name: movie
       });
     } else if (elem.includes('directedBy')) {
-      let [movie, director] = elem.split(' directedBy ');
+      const [movie, director] = elem.split(' directedBy ');
+
       moviesArr.forEach(movieObj => {
         if (movieObj.name === movie) {
           movieObj.director = director;
         }
       });
     } else if (elem.includes('onDate')) {
-      let [movie, date] = elem.split(' onDate ');
+      const [movie, date] = elem.split(' onDate ');
+
       moviesArr.forEach(movieObj => {
         if (movieObj.name === movie) {
           movieObj.date = date;
@@ -31,6 +34,7 @@ function movies(input) {
   }
 }
 
+console.log('------------------Test 1------------------');
 movies([
   'addMovie Fast and Furious',
   'addMovie Godfather',
@@ -42,6 +46,12 @@ movies([
   'Fast and Furious directedBy Rob Cohen'
 ]);
 
+/* 
+  {"name":"Fast and Furious","date":"30.07.2018","director":"Rob Cohen"}
+  {"name":"Godfather","director":"Francis Ford Coppola","date":"29.07.2018"}
+*/
+
+console.log('------------------Test 2------------------');
 movies([
   'addMovie The Avengers',
   'addMovie Superman',
@@ -50,3 +60,5 @@ movies([
   'Captain America onDate 30.07.2010',
   'Captain America directedBy Joe Russo'
 ]);
+
+// {"name":"The Avengers","director":"Anthony Russo","date":"30.07.2010"}
