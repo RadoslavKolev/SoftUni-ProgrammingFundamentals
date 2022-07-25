@@ -15,8 +15,7 @@ function santasSecretHelper(input) {
 
     if (!validMessage) continue;
 
-    const name = validMessage.groups.name;
-    const behavior = validMessage.groups.behavior;
+    const {name, behavior} = validMessage.groups;
 
     if (behavior === 'G') {
       console.log(name);
