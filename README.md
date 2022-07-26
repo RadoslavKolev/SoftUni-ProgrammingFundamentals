@@ -159,4 +159,13 @@ This repository contains the Programming Fundamentals course from SoftUni
       <li>Regular Expressions in JavaScript</li>
     </ul>  
   </li>
+  <li><h3>Database Basics</h3>
+    <ul>
+      <li>Databases Introduction</li>
+      <li>SQL vs. NoSQL Databases</li>
+      <li>DBMS Systems</li>
+      <li>Relational Databases, SQL and MySQL Database</li>
+      <li>NoSQL Databases and MongoDB</li>
+    </ul>  
+  </li>
 </ul>
