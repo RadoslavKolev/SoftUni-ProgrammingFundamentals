@@ -2,9 +2,7 @@ function passwordReset(arr) {
   let message = arr.shift();
 
   for (const line of arr) {
-    if (line === 'Done') {
-      break;
-    }
+    if (line === 'Done') break;
 
     if (line === 'TakeOdd') {
       let password = '';
@@ -51,6 +49,14 @@ passwordReset(["Siiceercaroetavm!:?:ahsott.:i:nstupmomceqr",
   "Done"
 ]);
 
+/*
+  icecream::hot::summer
+  icecream::hot::mer
+  icecream-hot-mer
+  Nothing to replace!
+  Your password is: icecream-hot-mer
+*/
+
 console.log('-----------Test 2-------------');
 passwordReset(["up8rgoyg3r1atmlmpiunagt!-irs7!1fgulnnnqy",
   "TakeOdd",
@@ -59,3 +65,11 @@ passwordReset(["up8rgoyg3r1atmlmpiunagt!-irs7!1fgulnnnqy",
   "Substitute ? .!.",
   "Done"
 ]);
+
+/*
+  programming!is!funny
+  programming!is!fun
+  programming***is***fun
+  Nothing to replace!
+  Your password is: programming***is***fun
+*/

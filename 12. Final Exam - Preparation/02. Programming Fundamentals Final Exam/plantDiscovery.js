@@ -1,59 +1,80 @@
-function plant(arr) {
-  let n = Number(arr.shift());
-  let obj = {};
-  
-  // const pattern = /: - /g;
+function plant(input) {
+  const n = Number(input.shift());
+  const plants = {};
+
   for (let i = 0; i < n; i++) {
-    let [plant, rarity] = arr[i].split('<->');
+    let [plant, rarity] = input.shift().split('<->');
     rarity = Number(rarity);
-    obj[plant] = {
+
+    plants[plant] = {
       rarity,
       ratings: [],
     };
-   
   }
-  // console.log(obj)
-  for (let j = n; j < arr.length; j++) {
-    if (arr[j] === 'Exhibition') {
-      break;
+
+  const rate = (obj, plant, rating) => {
+    if (obj.hasOwnProperty(plant)) {
+      obj[plant].ratings.push(rating);
+    } else {
+      console.log('error');
     }
-    if (arr[j].includes('Rate')) {
-      let [_, ...command] = arr[j].split(': ');
-      let [plant, rating] = command[0].split(' - ');
-      if (obj.hasOwnProperty(plant)) {
-        obj[plant]['ratings'].push(rating);
-      } else {
-        console.log('error');
-      }
+  };
 
-    } else if (arr[j].includes('Update')){
-      let [_, ...command] = arr[j].split(': ');
-      let [plant, newRarity] = command[0].split(' - ');
-      if (obj.hasOwnProperty(plant)){
-        obj[plant]['rarity'] = newRarity;
-      } else {
-        console.log('error');
-      }
-
-    } else if (arr[j].includes('Reset')){
-      let[_, plant] = arr[j].split(': ');
-      if (obj.hasOwnProperty(plant)){
-        obj[plant]['ratings'] = [];
-      } else {
-        console.log('error');
-      }
+  const update = (obj, plant, newRarity) => {
+    if (obj.hasOwnProperty(plant)) {
+      obj[plant].rarity = newRarity;
+    } else {
+      console.log('error');
     }
+  };
 
+  const reset = (obj, plant) => {
+    if (obj.hasOwnProperty(plant)) {
+      obj[plant].ratings = [];
+    } else {
+      console.log('error');
+    }
+  };
+
+  for (const elem of input) {
+    if (elem === 'Exhibition') break;
+
+    const [command, plant, value] = elem.split(': ')
+      .join(' - ')
+      .split(' - ');
+
+    switch (command) {
+      case 'Rate':
+        const rating = Number(value);
+        rate(plants, plant, rating);
+        break;
+      case 'Update':
+        const newRarity = Number(value);
+        update(plants, plant, newRarity);
+        break;
+      case 'Reset':
+        reset(plants, plant);
+        break;
+      default:
+        console.log('No such command');
+        continue;
+    }
   }
+
   console.log('Plants for the exhibition:');
-  for (let key in obj) {
-    let avg = 0;
-    if (obj[key]['ratings'].length > 0){
-      let sum = obj[key]['ratings'].map(Number).reduce((a, b) => a + b);
-       avg = sum / obj[key]['ratings'].length;
+
+  Object.entries(plants)
+    .forEach(([plant, obj]) => {
+      let avg = 0;
+
+      if (obj.ratings.length > 0) {
+        const sum = obj.ratings.reduce((a, b) => a + b);
+        avg = sum / obj.ratings.length;
+      }
+
+      console.log(`- ${plant}; Rarity: ${obj.rarity}; Rating: ${avg.toFixed(2)}`);
     }
-    console.log(`- ${key}; Rarity: ${obj[key]['rarity']}; Rating: ${avg.toFixed(2)}`);
-  }
+  );
 }
 
 console.log('------------------Test 1------------------');
@@ -71,6 +92,13 @@ plant([
   "Exhibition"
 ]);
 
+/* 
+  Plants for the exhibition:
+  - Arnoldii; Rarity: 4; Rating: 0.00
+  - Woodii; Rarity: 5; Rating: 7.50
+  - Welwitschia; Rarity: 2; Rating: 7.00
+*/
+
 console.log('------------------Test 2------------------');
 plant([
   "2",
@@ -80,3 +108,9 @@ plant([
   "Rate: Candelabra - 6",
   "Exhibition"
 ]);
+
+/* 
+  Plants for the exhibition:
+  - Candelabra; Rarity: 10; Rating: 6.00
+  - Oahu; Rarity: 10; Rating: 7.00
+*/

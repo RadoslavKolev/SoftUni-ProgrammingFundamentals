@@ -1,32 +1,45 @@
 function worldTour(input) {
   let destinations = input.shift();
 
-  for (let element of input) {
+  const addStop = (str, index, text) => {
+    if (index >= 0 && index < str.length) {
+      return str.slice(0, index) + text + str.slice(index);
+    } 
 
-    if (element === 'Travel') {
-      break;
-    }
+    return str;
+  };
 
-    if (element.includes('Add Stop')) {
-      const [_, index, str] = element.split(':');
+  const removeStop = (str, start, end) => {
+    if (start >= 0 && start < str.length && end >= 0 && end < str.length) {
+      return str.slice(0, start) + str.slice(end + 1);
+    } 
 
-      if (index >= 0 && index < destinations.length) {
-        destinations = destinations.slice(0, index) + str + destinations.slice(index)
-      }
-    } else if (element.includes('Remove Stop')) {
-      let [_, startIndex, endIndex] = element.split(':');
-      startIndex = Number(startIndex);
-      endIndex = Number(endIndex);
+    return str;
+  };
 
-      if (startIndex >= 0 && startIndex < destinations.length && endIndex >= 0 && endIndex < destinations.length) {
-        const part1 = destinations.slice(0, startIndex);
-        const part2 = destinations.slice(endIndex + 1);
-        destinations = part1 + part2;
-      }
-    } else if (element.includes('Switch')) {
-      const [_, oldStr, newStr] = element.split(':');
-      const regex = new RegExp(oldStr, 'g');
-      destinations = destinations.replace(regex, newStr);
+  const swap = (str, oldStr, newStr) => {
+    const regex = new RegExp(oldStr, 'g');
+    return str.replace(regex, newStr);
+  };
+
+  for (const elem of input) {
+    if (elem === 'Travel') break;
+
+    const [command, value1, value2] = elem.split(':');
+
+    switch (command) {
+      case 'Add Stop':
+        destinations = addStop(destinations, Number(value1), value2);
+        break;
+      case 'Remove Stop':
+        destinations = removeStop(destinations, Number(value1), Number(value2));
+        break;
+      case 'Switch':
+        destinations = swap(destinations, value1, value2);
+        break;
+      default:
+        console.log('No such command!');
+        continue;
     }
 
     console.log(destinations);
@@ -35,7 +48,6 @@ function worldTour(input) {
   console.log('Ready for world tour! Planned stops:', destinations);
 }
 
-console.log('------------------Test 1------------------');
 worldTour([
   "Hawai::Cyprys-Greece",
   "Add Stop:7:Rome",
@@ -43,3 +55,10 @@ worldTour([
   "Switch:Hawai:Bulgaria",
   "Travel"
 ]);
+
+/* 
+  Hawai::RomeCyprys-Greece
+  Hawai::Rome-Greece
+  Bulgaria::Rome-Greece
+  Ready for world tour! Planned stops: Bulgaria::Rome-Greece
+*/

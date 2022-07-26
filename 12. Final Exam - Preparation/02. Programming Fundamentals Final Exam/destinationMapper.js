@@ -16,5 +16,15 @@ function destinationMapper(str) {
 console.log('----------Test 1----------');
 destinationMapper('=Hawai=/Cyprus/=Invalid/invalid==i5valid=/I5valid/=i=');
 
+/* 
+  Destinations: Hawai, Cyprus
+  Travel Points: 11
+*/
+
 console.log('----------Test 2----------');
 destinationMapper('ThisIs some InvalidInput');
+
+/*
+  Destinations:
+  Travel Points: 0
+*/
