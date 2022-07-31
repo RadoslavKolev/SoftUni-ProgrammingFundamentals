@@ -1,44 +1,60 @@
-function passwordReset(arr) {
-  let message = arr.shift();
+function passwordReset(input) {
+  let password = input.shift();
 
-  for (const line of arr) {
-    if (line === 'Done') break;
+  const takeOdd = str => {
+    let newPassword = '';
+    const len = str.length;
 
-    if (line === 'TakeOdd') {
-      let password = '';
-
-      for (let i = 0; i < message.length; i++) {
-        if (i % 2 !== 0) {
-          password += message[i];
-        }
+    for (let i = 0; i < len; i++) {
+      if (i % 2 !== 0) {
+        newPassword += str[i];
       }
-
-      message = password;
-      console.log(message);
-    } else if (line.includes('Cut')) {
-      let newLine = line.replace('Cut ', '');
-      let [index, length] = newLine.split(' ').map(Number);
-      let stringToRemove = message.substring(index, index + length);
-      message = message.replace(stringToRemove, '');
-      console.log(message);
-    } else if (line.includes('Substitute')) {
-      let newLine = line.replace('Substitute ', '');
-      let [subString, substitute] = newLine.split(' ');
-
-      if (!message.includes(subString)) {
-        console.log(`Nothing to replace!`);
-        continue;
-      }
-
-      while (message.includes(subString)) {
-        message = message.replace(subString, substitute);
-      }
-
-      console.log(message);
     }
+
+    return newPassword;
+  };
+
+  const cut = (str, index, len) => str.slice(0, index) + str.slice(index + len);
+
+  const substituteFunc = (str, substring, substitute) => {
+    const regex = new RegExp(substring, 'g');
+    return str.replace(regex, substitute);
+  };
+
+  for (const elem of input) {
+    if (elem === 'Done') break;
+
+    const [command, ...rest] = elem.split(' ');
+
+    switch (command) {
+      case 'TakeOdd':
+        password = takeOdd(password);
+        break;
+      case 'Cut':
+        const index = Number(rest[0]);
+        const length = Number(rest[1]);
+        password = cut(password, index, length);
+        break;
+      case 'Substitute':
+        const substring = rest[0];
+
+        if (!password.includes(substring)) {
+          console.log('Nothing to replace!');
+          continue;
+        }
+
+        const substitute = rest[1];
+        password = substituteFunc(password, substring, substitute);
+        break;
+      default:
+        console.log('No such command!');
+        continue;
+    }
+
+    console.log(password);
   }
 
-  console.log(`Your password is: ${message}`);
+  console.log(`Your password is: ${password}`);
 }
 
 passwordReset(["Siiceercaroetavm!:?:ahsott.:i:nstupmomceqr",
