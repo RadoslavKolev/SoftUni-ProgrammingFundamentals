@@ -62,47 +62,7 @@ function activationKeys(input) {
     console.log(activationKey);
   }
 
-  console.log(`Your activation key iconsole.log('-------------------- Test 1 --------------------');
-activationKeys([
-  "abcdefghijklmnopqrstuvwxyz",
-  "Slice>>>2>>>6",
-  "Flip>>>Upper>>>3>>>14",
-  "Flip>>>Lower>>>5>>>7",
-  "Contains>>>def",
-  "Contains>>>deF",
-  "Generate"
-]);
-
-/* 
-  abghijklmnopqrstuvwxyz
-  abgHIJKLMNOPQRstuvwxyz
-  abgHIjkLMNOPQRstuvwxyz
-  Substring not found!
-  Substring not found!
-  Your activation key is: abgHIjkLMNOPQRstuvwxyz
-*/
-
-console.log('-------------------- Test 2 --------------------');
-activationKeys([
-  "134softsf5ftuni2020rockz42",
-  "Slice>>>3>>>7",
-  "Contains>>>-rock",
-  "Contains>>>-uni-",
-  "Contains>>>-rocks",
-  "Flip>>>Upper>>>2>>>8",
-  "Flip>>>Lower>>>5>>>11",
-  "Generate"
-]);
-
-/* 
-  134sf5ftuni2020rockz42
-  Substring not found!
-  Substring not found!
-  Substring not found!
-  134SF5FTuni2020rockz42
-  134SF5ftuni2020rockz42
-  Your activation key is: 134SF5ftuni2020rockz42
-*/s: ${activationKey}`);
+  console.log(`Your activation key is: ${activationKey}`);
 }
 
 console.log('-------------------- Test 1 --------------------');
