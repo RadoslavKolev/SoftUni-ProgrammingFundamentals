@@ -1,19 +1,20 @@
 function emojiDetector(input) {
+  const text = input[0];
   const pattern = /(::|\*\*)(?<emoji>[A-Z][a-z]{2,})\1/g;
   const digitPattern = /\d/g;
 
-  const coolThreshold = input[0].match(digitPattern)
+  const coolThreshold = text.match(digitPattern)
     .map(Number)
     .reduce((a, b) => a * b);
 
-  const foundEmojis = input[0].match(pattern).length;
+  const foundEmojis = text.match(pattern).length;
 
   console.log(`Cool threshold: ${coolThreshold}`);
   console.log(`${foundEmojis} emojis found in the text. The cool ones are:`);
 
   let validEmoji;
 
-  while ((validEmoji = pattern.exec(input[0])) !== null) {
+  while ((validEmoji = pattern.exec(text)) !== null) {
     const emoji = validEmoji.groups.emoji;
     let currentSum = 0;
     

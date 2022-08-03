@@ -44,17 +44,20 @@ function thePianist(input) {
   for (const elem of input) {
     if (elem === 'Stop') break;
 
-    const [command, value1, value2, value3] = elem.split('|');
+    const [command, piece, ...rest] = elem.split('|');
 
     switch (command) {
       case 'Add':
-        add(pianists, value1, value2, value3);
+        const composer = rest[0];
+        const key = rest[1];
+        add(pianists, piece, composer, key);
         break;
       case 'Remove':
-        remove(pianists, value1);
+        remove(pianists, piece);
         break;
       case 'ChangeKey':
-        changeKey(pianists, value1, value2);
+        const newKey = rest[0];
+        changeKey(pianists, piece, newKey);
         break;
       default:
         console.log('No such command!');

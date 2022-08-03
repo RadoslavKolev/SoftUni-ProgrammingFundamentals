@@ -39,17 +39,17 @@ function plant(input) {
   for (const elem of input) {
     if (elem === 'Exhibition') break;
 
-    const [command, plant, value] = elem.split(': ')
+    const [command, plant, ...rest] = elem.split(': ')
       .join(' - ')
       .split(' - ');
 
     switch (command) {
       case 'Rate':
-        const rating = Number(value);
+        const rating = Number(rest[0]);
         rate(plants, plant, rating);
         break;
       case 'Update':
-        const newRarity = Number(value);
+        const newRarity = Number(rest[0]);
         update(plants, plant, newRarity);
         break;
       case 'Reset':

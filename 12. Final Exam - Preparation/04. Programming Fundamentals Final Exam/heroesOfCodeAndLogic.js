@@ -16,8 +16,6 @@ function heroesOfCodeAndLogic(input) {
   }
 
   const castSpell = (obj, hero, manaNeeded, spellName) => {
-    manaNeeded = Number(manaNeeded);
-
     if (obj[hero].mana >= manaNeeded) {
       obj[hero].mana -= manaNeeded;
       console.log(`${hero} has successfully cast ${spellName} and now has ${obj[hero].mana} MP!`);
@@ -27,7 +25,6 @@ function heroesOfCodeAndLogic(input) {
   };
 
   const takeDamage = (obj, hero, damage, attacker) => {
-    damage = Number(damage);
     obj[hero].health -= damage;
 
     if (obj[hero].health > 0) {
@@ -39,8 +36,6 @@ function heroesOfCodeAndLogic(input) {
   };
 
   const recharge = (obj, hero, amount) => {
-    amount = Number(amount);
-
     if (obj[hero].mana + amount > MAX_MANA) {
       amount = MAX_MANA - obj[hero].mana;
     }
@@ -50,8 +45,6 @@ function heroesOfCodeAndLogic(input) {
   };
 
   const heal = (obj, hero, amount) => {
-    amount = Number(amount);
-
     if (obj[hero].health + amount > MAX_HEALTH) {
       amount = MAX_HEALTH - obj[hero].health;
     }
@@ -63,20 +56,26 @@ function heroesOfCodeAndLogic(input) {
   for (const elem of input) {
     if (elem === 'End') break;
 
-    const [command, value1, value2, value3] = elem.split(' - ');
+    const [command, hero, ...rest] = elem.split(' - ');
 
     switch (command) {
       case 'CastSpell':
-        castSpell(heroes, value1, value2, value3);
+        const manaNeeded = Number(rest[0]);
+        const spellName = rest[1];
+        castSpell(heroes, hero, manaNeeded, spellName);
         break;
       case 'TakeDamage':
-        takeDamage(heroes, value1, value2, value3);
+        const damage = Number(rest[0]);
+        const attacker = rest[1];
+        takeDamage(heroes, hero, damage, attacker);
         break;
       case 'Recharge':
-        recharge(heroes, value1, value2);
+        const manaAmount = Number(rest[0]);
+        recharge(heroes, hero, manaAmount);
         break;
       case 'Heal':
-        heal(heroes, value1, value2);
+        const healthAmount = Number(rest[0]);
+        heal(heroes, hero, healthAmount);
         break;
       default:
         console.log('No such command!');

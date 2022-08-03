@@ -1,21 +1,9 @@
 function worldTour(input) {
   let destinations = input.shift();
 
-  const addStop = (str, index, text) => {
-    if (index >= 0 && index < str.length) {
-      return str.slice(0, index) + text + str.slice(index);
-    } 
+  const addStop = (str, index, text) => str.slice(0, index) + text + str.slice(index);
 
-    return str;
-  };
-
-  const removeStop = (str, start, end) => {
-    if (start >= 0 && start < str.length && end >= 0 && end < str.length) {
-      return str.slice(0, start) + str.slice(end + 1);
-    } 
-
-    return str;
-  };
+  const removeStop = (str, start, end) => str.slice(0, start) + str.slice(end + 1);
 
   const swap = (str, oldStr, newStr) => {
     const regex = new RegExp(oldStr, 'g');
@@ -25,17 +13,29 @@ function worldTour(input) {
   for (const elem of input) {
     if (elem === 'Travel') break;
 
-    const [command, value1, value2] = elem.split(':');
+    const [command, ...rest] = elem.split(':');
 
     switch (command) {
       case 'Add Stop':
-        destinations = addStop(destinations, Number(value1), value2);
+        const index = Number(rest[0]);
+        const string = rest[1];
+
+        if (index < 0 || index >= destinations.length) continue;
+
+        destinations = addStop(destinations, index, string);
         break;
       case 'Remove Stop':
-        destinations = removeStop(destinations, Number(value1), Number(value2));
+        const startIndex = Number(rest[0]);
+        const endIndex = Number(rest[1]);
+
+        if (startIndex < 0 || startIndex >= destinations.length || endIndex < 0 || endIndex < destinations.length) continue;
+
+        destinations = removeStop(destinations, startIndex, endIndex);
         break;
       case 'Switch':
-        destinations = swap(destinations, value1, value2);
+        const oldString = rest[0];
+        const newString = rest[1];
+        destinations = swap(destinations, oldString, newString);
         break;
       default:
         console.log('No such command!');

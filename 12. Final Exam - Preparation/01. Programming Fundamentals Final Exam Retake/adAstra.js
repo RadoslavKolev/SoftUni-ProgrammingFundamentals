@@ -1,6 +1,6 @@
 function adAstra(input) {
   const CALORIES_PER_DAY = 2000;
-  const text = input.shift();
+  const text = input[0];
   const pattern = /([|#])(?<item>[A-Za-z\s]+)\1(?<expirationDate>\d{2}\/\d{2}\/\d{2})\1(?<calories>\d{1,5})\1/g;
   const foodInfo = [];
   let totalCalories = 0;

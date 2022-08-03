@@ -16,17 +16,22 @@ function theImitationGame(input) {
   for (const elem of input) {
     if (elem === 'Decode') break;
 
-    const [command, value1, value2] = elem.split('|');
+    const [command, ...rest] = elem.split('|');
 
     switch (command) {
       case 'Move':
-        decryptedMessage = move(decryptedMessage, Number(value1));
+        const numberOfLetters = Number(rest[0]);
+        decryptedMessage = move(decryptedMessage, numberOfLetters);
         break;
       case 'Insert':
-        decryptedMessage = insert(decryptedMessage, Number(value1), value2);
+        const index = Number(rest[0]);
+        const value = rest[1];
+        decryptedMessage = insert(decryptedMessage, index, value);
         break;
       case 'ChangeAll':
-        decryptedMessage = changeAll(decryptedMessage, value1, value2);
+        const substring = rest[0];
+        const replacement = rest[1];
+        decryptedMessage = changeAll(decryptedMessage, substring, replacement);
         break;
       default:
         console.log('No such command!');

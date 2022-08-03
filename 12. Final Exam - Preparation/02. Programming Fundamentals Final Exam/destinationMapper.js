@@ -1,12 +1,13 @@
 function destinationMapper(str) {
   const pattern = /([=/])(?<name>[A-Z][A-Za-z]{2,})\1/g;
-  const allMatches = str.matchAll(pattern);
   const destinations = [];
   let sum = 0;
+  let validLocation;
 
-  for (const element of allMatches) {
-    destinations.push(element.groups.name);
-    sum += element.groups.name.length;
+  while ((validLocation = pattern.exec(str)) !== null) {
+    const location = validLocation.groups.name;
+    destinations.push(location);
+    sum += location.length;
   }
   
   console.log('Destinations:', destinations.join(', '));

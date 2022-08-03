@@ -3,8 +3,6 @@ function activationKeys(input) {
 
   const contains = (str, substring) => {
     if (str.includes(substring)) return true; 
-
-    return false;
   };
 
   const flip = (str, command, start, end) => {
