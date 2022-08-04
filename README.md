@@ -177,4 +177,12 @@ This repository contains the Programming Fundamentals course from SoftUni
       <li>Test Automation, Frameworks and Tools</li>
     </ul>  
   </li>
+  <li><h3>Basic Web Project</h3>
+    <ul>
+      <li>Node Modules (HTTP, Creating simple HTTP Server)</li>
+      <li>Express.js Framework</li>
+      <li>MVC</li>
+      <li>MVC with Node, Express.js, Handlebars</li>
+    </ul>  
+  </li>
 </ul>
