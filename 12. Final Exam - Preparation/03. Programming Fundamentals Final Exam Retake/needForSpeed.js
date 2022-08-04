@@ -16,7 +16,7 @@ function needForSpeed(input) {
     };
   }
 
-  const drive = (obj, car, distance, fuel) => {
+  function drive(obj, car, distance, fuel) {
     if (obj[car].fuel < fuel) {
       console.log('Not enough fuel to make that ride');
       return;
@@ -30,18 +30,18 @@ function needForSpeed(input) {
       delete obj[car];
       console.log(`Time to sell the ${car}!`);
     }
-  };
+  }
 
-  const refuel = (obj, car, fuel) => {
+  function refuel(obj, car, fuel) {
     if (obj[car].fuel + fuel > MAX_TANK_FUEL) {
       fuel = MAX_TANK_FUEL - obj[car].fuel;
     }
 
     obj[car].fuel += fuel;
     console.log(`${car} refueled with ${fuel} liters`);
-  };
+  }
 
-  const revert = (obj, car, kilometers) => {
+  function revert(obj, car, kilometers) {
     obj[car].mileage -= kilometers;
 
     if (obj[car].mileage < MIN_MILEAGE) {
@@ -50,7 +50,7 @@ function needForSpeed(input) {
     }
   
     console.log(`${car} mileage decreased by ${kilometers} kilometers`);
-  };
+  }
 
   for (const elem of input) {
     if (elem === 'Stop') break;

@@ -1,20 +1,18 @@
 function secretChat(input) {
   let message = input.shift();
   
-  const insertSpace = (str, index) => {
-    return str.slice(0, index) + ' ' + str.slice(index);
-  };
+  const insertSpace = (str, index) => str.slice(0, index) + ' ' + str.slice(index);
 
-  const reverse = (str, substring) => {
+  function reverse(str, substring) {
     str = str.replace(substring, '');
     substring = substring.split('').reverse().join('');
     return str + substring;
-  };
+  }
 
-  const changeAll = (str, substring, replacement) => {
+  function changeAll(str, substring, replacement) {
     const regex = new RegExp(substring, 'g');
     return str.replace(regex, replacement);
-  };
+  }
 
   for (const elem of input) {
     if (elem === 'Reveal') break;

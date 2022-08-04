@@ -11,7 +11,7 @@ function thePianist(input) {
     };
   }
 
-  const add = (obj, piece, composer, key) => {
+  function add(obj, piece, composer, key) {
     if (!obj.hasOwnProperty(piece)) {
       obj[piece] = {
         composer,
@@ -21,25 +21,25 @@ function thePianist(input) {
     } else {
       console.log(`${piece} is already in the collection!`);
     }
-  };
+  }
 
-  const remove = (obj, piece) => {
+  function remove(obj, piece) {
     if (obj.hasOwnProperty(piece)) {
       delete obj[piece];
       console.log(`Successfully removed ${piece}!`);
     } else {
       console.log(`Invalid operation! ${piece} does not exist in the collection.`);
     }
-  };
+  }
 
-  const changeKey = (obj, piece, newKey) => {
+  function changeKey(obj, piece, newKey) {
     if (obj.hasOwnProperty(piece)) {
       obj[piece].key = newKey;
       console.log(`Changed the key of ${piece} to ${newKey}!`);
     } else {
       console.log(`Invalid operation! ${piece} does not exist in the collection.`);
     }
-  };
+  }
 
   for (const elem of input) {
     if (elem === 'Stop') break;

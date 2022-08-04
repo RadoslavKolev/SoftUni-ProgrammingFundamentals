@@ -5,10 +5,10 @@ function worldTour(input) {
 
   const removeStop = (str, start, end) => str.slice(0, start) + str.slice(end + 1);
 
-  const swap = (str, oldStr, newStr) => {
+  function swap(str, oldStr, newStr) {
     const regex = new RegExp(oldStr, 'g');
     return str.replace(regex, newStr);
-  };
+  }
 
   for (const elem of input) {
     if (elem === 'Travel') break;

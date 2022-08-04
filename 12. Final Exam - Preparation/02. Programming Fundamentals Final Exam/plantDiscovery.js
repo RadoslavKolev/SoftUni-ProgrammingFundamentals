@@ -12,29 +12,29 @@ function plant(input) {
     };
   }
 
-  const rate = (obj, plant, rating) => {
+  function rate(obj, plant, rating) {
     if (obj.hasOwnProperty(plant)) {
       obj[plant].ratings.push(rating);
     } else {
       console.log('error');
     }
-  };
+  }
 
-  const update = (obj, plant, newRarity) => {
+  function update(obj, plant, newRarity) {
     if (obj.hasOwnProperty(plant)) {
       obj[plant].rarity = newRarity;
     } else {
       console.log('error');
     }
-  };
+  }
 
-  const reset = (obj, plant) => {
+  function reset(obj, plant) {
     if (obj.hasOwnProperty(plant)) {
       obj[plant].ratings = [];
     } else {
       console.log('error');
     }
-  };
+  }
 
   for (const elem of input) {
     if (elem === 'Exhibition') break;

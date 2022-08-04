@@ -21,7 +21,7 @@ function pirates(input) {
     targetedCities[city].gold += gold;
   }
 
-  const plunder = (obj, town, people, gold) => {
+  function plunder(obj, town, people, gold) {
     obj[town].population -= people;
     obj[town].gold -= gold;
 
@@ -31,9 +31,9 @@ function pirates(input) {
       delete obj[town];
       console.log(`${town} has been wiped off the map!`);
     }
-  };
+  }
 
-  const prosper = (obj, town, gold) => {
+  function prosper(obj, town, gold) {
     if (gold < 0) {
       console.log("Gold added cannot be a negative number!");
       return;
@@ -42,7 +42,7 @@ function pirates(input) {
     obj[town].gold += gold;
 
     console.log(`${gold} gold added to the city treasury. ${town} now has ${obj[town].gold} gold.`);
-  };
+  }
 
   for (let i = startIndex; i < len; i++) {
     if (input[i] === 'End') break;

@@ -5,13 +5,13 @@ function theImitationGame(input) {
 
   const insert = (str, i, value) => str.slice(0, i) + value + str.slice(i);
   
-  const changeAll = (str, substring, replacement) => {
+  function changeAll(str, substring, replacement) {
     while (str.includes(substring)) {
       str = str.replace(substring, replacement);
     }
 
     return str;
-  };
+  }
 
   for (const elem of input) {
     if (elem === 'Decode') break;

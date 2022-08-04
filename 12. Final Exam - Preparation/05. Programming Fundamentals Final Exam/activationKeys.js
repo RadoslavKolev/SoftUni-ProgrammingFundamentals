@@ -1,11 +1,11 @@
 function activationKeys(input) {
   let activationKey = input.shift();
 
-  const contains = (str, substring) => {
+  function contains(str, substring) {
     if (str.includes(substring)) return true; 
-  };
+  }
 
-  const flip = (str, command, start, end) => {
+  function flip(str, command, start, end) {
     let substring = str.slice(start, end);
 
     if (command === 'Upper') {
@@ -15,12 +15,9 @@ function activationKeys(input) {
     }
 
     return str.slice(0, start) + substring + str.slice(end);
-  };
+  }
 
-  const sliceFunc = (str, start, end) => {
-    const substring = str.slice(start, end);
-    return str.replace(substring, '');
-  };
+  const sliceFunc = (str, start, end) => str.slice(0, start) + str.slice(end + 1);
 
   for (const elem of input) {
     if (elem === 'Generate') break;
