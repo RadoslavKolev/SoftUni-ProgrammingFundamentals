@@ -168,4 +168,13 @@ This repository contains the Programming Fundamentals course from SoftUni
       <li>NoSQL Databases and MongoDB</li>
     </ul>  
   </li>
+  <li><h3>QA Introduction</h3>
+    <ul>
+      <li>Software Quality Assurance</li>
+      <li>QA Engineers and Resposibilities</li>
+      <li>Bugs and Bug Trackers</li>
+      <li>Testing, Test Types and Test Levels</li>
+      <li>Test Automation, Frameworks and Tools</li>
+    </ul>  
+  </li>
 </ul>
