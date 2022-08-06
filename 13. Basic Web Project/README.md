@@ -7,7 +7,7 @@
   <li>
      Listing contacts<br><br>
      <img src="https://github.com/RadoslavKolev/SoftUni-ProgrammingFundamentals/blob/main/13.%20Basic%20Web%20Project/images/Listing%20Contacts.png?raw=true" alt="Listing Contacts" />
-  </li>
+  </li><br>
   <li>
      Add contact<br><br>
      <img src="https://github.com/RadoslavKolev/SoftUni-ProgrammingFundamentals/blob/main/13.%20Basic%20Web%20Project/images/Add%20Contact.png?raw=true" alt="Add Contact" /><br><br>
