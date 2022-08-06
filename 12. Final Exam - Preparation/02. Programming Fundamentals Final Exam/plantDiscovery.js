@@ -1,4 +1,4 @@
-function plant(input) {
+function plantDiscovery(input) {
   const n = Number(input.shift());
   const plants = {};
 
@@ -39,8 +39,8 @@ function plant(input) {
   for (const elem of input) {
     if (elem === 'Exhibition') break;
 
-    const [command, plant, ...rest] = elem.split(': ')
-      .join(' - ')
+    const [command, plant, ...rest] = elem
+      .replace(': ', ' - ')
       .split(' - ');
 
     switch (command) {
@@ -78,7 +78,7 @@ function plant(input) {
 }
 
 console.log('------------------Test 1------------------');
-plant([
+plantDiscovery([
   "3",
   "Arnoldii<->4",
   "Woodii<->7",
@@ -100,7 +100,7 @@ plant([
 */
 
 console.log('------------------Test 2------------------');
-plant([
+plantDiscovery([
   "2",
   "Candelabra<->10",
   "Oahu<->10",
