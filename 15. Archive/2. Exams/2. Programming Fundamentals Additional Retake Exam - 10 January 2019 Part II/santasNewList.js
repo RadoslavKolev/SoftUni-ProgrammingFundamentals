@@ -47,7 +47,7 @@ function santasNewList(input) {
   );
 }
 
-console.log('------------- Test 1-------------');
+console.log('------------- Test 1 -------------');
 santasNewList([
   'Marty->Toys->5',
   'Sam->Candy->20',
@@ -77,7 +77,7 @@ santasNewList([
   Tablet -> 3
 */
 
-console.log('------------- Test 2-------------');
+console.log('------------- Test 2 -------------');
 santasNewList([
   'Teddy->Clothes->8',
   'Johny->Toys->10',

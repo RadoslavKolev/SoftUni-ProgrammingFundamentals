@@ -26,7 +26,7 @@ function santasSecretHelper(input) {
   console.log(goodChildren.join('\n'));
 }
 
-console.log('------------- Test 1-------------');
+console.log('------------- Test 1 -------------');
 santasSecretHelper([
   '3',
   'CNdwhamigyenumje$J$',
@@ -40,7 +40,7 @@ santasSecretHelper([
   Bobbie
 */
 
-console.log('------------- Test 2-------------');
+console.log('------------- Test 2 -------------');
 santasSecretHelper([
   '3',
   'N}eideidmk$\'(mnyenmCNlpamnin$J$',
