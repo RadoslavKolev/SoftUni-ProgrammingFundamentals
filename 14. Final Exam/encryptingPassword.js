@@ -1,9 +1,9 @@
 function encryptingPassword(input) {
-  const numberOfInputs = Number(input.shift());
+  const n = Number(input.shift());
   const pattern = /(.+)>(?<numbers>\d{3})\|(?<lowers>[a-z]{3})\|(?<uppers>[A-Z]{3})\|(?<allSymbols>[^<>]{3})<\1/;
 
-  for (const elem of input) {
-    const validPassword = pattern.exec(elem);
+  for (let i = 0; i < n; i++) {
+    const validPassword = pattern.exec(input[i]);
 
     if (!validPassword) {
       console.log('Try another password!');
