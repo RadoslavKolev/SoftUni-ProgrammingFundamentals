@@ -185,4 +185,6 @@ This repository contains the Programming Fundamentals course from SoftUni
       <li>MVC with Node, Express.js, Handlebars</li>
     </ul>  
   </li>
-</ul>
+</ul><br>
+
+<img src="https://github.com/RadoslavKolev/SoftUni-ProgrammingFundamentals/blob/main/Certificate%20-%20PNG.jpeg" />
